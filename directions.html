@@ -108,6 +108,7 @@
         -moz-box-sizing: border-box;
         height: 35px;
         outline: none;
+        right: 15px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         width: 150px;
         text-decoration: none;
@@ -116,7 +117,7 @@
 
       #redbutton
       {
-        background-color: #ddffd6;
+        background-color: #ff8e8e;
         display: block;
         position: relative;
         z-index: 200;
@@ -178,30 +179,109 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 300; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    margin-left: 320px;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
     </style>
   </head>
   <body>  
 
-    <div id="mySidenav" class="sidenav">
+   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Team</a>
-      <a href="#">Log out</a>
-      <a href="#">Help</a>
+      <a  id="myBtn1" onclick="document.getElementById('about').style.display='block'">About</a>
+      <a  id="myBtn2" onclick="document.getElementById('team').style.display='block'">Team</a>
+      <a  id="myBtn3" onclick="document.getElementById('logout').style.display='block'">Log out</a>
+      <a  id="myBtn4" onclick="document.getElementById('help').style.display='block'">Help</a>
     </div>
-
 
     <span style="font-size:50px; cursor:pointer; z-index: 200; position: relative; margin-left: 15px; top: 12px;"  onclick="openNav()">&#9776;</span>
 
+
+
     <input id="origin-input" class="controls" type="text"
         placeholder="Enter an origin location">
-
     <input id="destination-input" class="controls" type="text"
         placeholder="Enter a destination location">
+    <button  id="proceed" class="controls" onclick="hideinput()">Proceed</button>
 
-    <button id="proceed" class="controls" onclick="hideinput()">Proceed</button>
 
-    <div id="cabs">
+
+
+
+    <div id="cabs" >
       <p>Do you want to share the ride?</p>
       <button id="greenbutton" class="controls" onclick="">Yes</button>
       <button id="redbutton" class="controls" onclick="">No</button>
@@ -210,7 +290,133 @@
 
   <div id="map"></div>
 
-    <script>
+
+
+
+
+  
+  
+
+  <!-- The Modal -->
+<div id="about" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+   <!--  <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div> -->
+  </div>
+
+</div>
+
+
+  <!-- The Modal -->
+                <div id="team" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close">&times;</span>
+                      <h2>Modal Header</h2>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the Modal Body</p>
+                      <p>Some other text...</p>
+                    </div>
+                   <!--  <div class="modal-footer">
+                      <h3>Modal Footer</h3>
+                    </div> -->
+                  </div>
+
+                </div>
+
+
+                  <!-- The Modal -->
+<div id="logout" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+   <!--  <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div> -->
+  </div>
+
+</div>
+
+
+      <!-- The Modal -->
+          <div id="help" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+             <!--  <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div> -->
+            </div>
+
+          </div>
+<script>
+
+ var modal1 = document.getElementById('about');
+ var modal2 = document.getElementById('team');
+ var modal3 = document.getElementById('logout');
+ var modal4 = document.getElementById('help');
+
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal1.style.display = "none";
+    modal2.style.display = "none";
+    modal3.style.display = "none";
+    modal4.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+    if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
+    if (event.target == modal4) {
+        modal4.style.display = "none";
+    }
+    
+}
+
+
 
       function openNav() {
           document.getElementById("mySidenav").style.width = "250px";
@@ -224,6 +430,10 @@
           document.body.style.backgroundColor = "white";
 
         }
+      
+
+
+
       function hideinput()
       {
         document.getElementById('origin-input').style.display ='none';
@@ -237,9 +447,10 @@
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+      
+
+
       function initMap() {
-
-
 
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
