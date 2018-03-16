@@ -51,7 +51,7 @@
       }
 
       #proceed
-      { 
+      { text-align: center;
         color: white;
         font-family: Roboto;
         font-size: 15px;
@@ -72,7 +72,7 @@
 
       } 
 
-      #cabs
+/*      #cabs
       {
         display: none;
         z-index: 200;
@@ -143,7 +143,7 @@
         text-decoration: none;
         margin-top: 30px;
         border-radius: 8px;
-      }
+      }*/
 
       #logoutbutton
       {
@@ -276,7 +276,7 @@
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #ffbf00;
     color: white;
 }
 
@@ -285,7 +285,7 @@ background-color: white;}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #ffbf00;
     color: white;
 }
     </style>
@@ -308,17 +308,17 @@ background-color: white;}
         placeholder="Enter an origin location">
     <input id="destination-input" class="controls" type="text"
         placeholder="Enter a destination location">
-    <button  id="proceed" class="controls" onclick="hideinput()">Proceed</button>
+    <input  id="proceed" class="controls" value="Proceed" >
 
 
 
 
 
-    <div id="cabs" >
+  <!--   <div id="cabs" >
       <p>Do you want to share the ride?</p>
       <button id="greenbutton" class="controls" onclick="">Yes</button>
       <button id="redbutton" class="controls" onclick="">No</button>
-    </div>
+    </div> -->
 
 
   <div id="map"></div>
