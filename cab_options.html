@@ -57,28 +57,29 @@
     top: 30px;
     right: 0px;
     width: 85%;
-    height: 120px;
+    height: 180px;
     background-color: #ccc;
 }
 #div1{
   
-  transition: margin-left .5s;
+  transition: margin-left .3s;
     padding: 16px;
 }
 #div2{
   display: none;
-  transition: margin-left .5s;
+  transition: margin-left .3s;
     padding: 16px;
 }
 #div3{
   display: none;
-  transition: margin-left .5s;
+  transition: margin-left .3s;
     padding: 16px;
 }
 #div4{
   display: none;
-  transition: margin-left .5s;
+  transition: margin-left .3s;
     padding: 16px;
+    height: 550px;
 }
 
 
@@ -198,22 +199,22 @@ background-color: white;}
   <span style="font-size:40px; cursor:pointer; z-index: 200; position: fixed;"  onclick="openNav()">&#9776;</span>
 
   <div style="" class="w3-container  w3-animate-opacity " id="div1"><p>Available Cab opions</p>
-      <button id="button1" onclick="slide_div2()">Press</button>
+      <button id="button1" onclick="slide_div2()">Continue</button>
     </div>
     
-    <div style="position: absolute; top: 180px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
+    <div style="position: absolute; top: 230px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
 
-      <button id="button2" onclick="slide_div3()">Press</button>
+      <button id="button2" onclick="slide_div3()">Continue</button>
     </div>
     
-      <div style="position: absolute; top: 330px;" class="w3-container  w3-animate-opacity " id="div3">    <p>payment options</p>
+      <div style="position: absolute; top: 435px;" class="w3-container  w3-animate-opacity " id="div3">    <p>payment options</p>
 
-      <button id="button3" onclick="slide_div4()">Press</button>
+      <button id="button3" onclick="slide_div4()">Continue</button>
     </div>
     
-      <div style="position: absolute; top: 480px;" class="w3-container  w3-animate-opacity " id="div4">    <p>Receipt and mail</p>
+      <div style="position: absolute; top: 30px;" class="w3-container  w3-animate-opacity " id="div4">    <p>Receipt and mail</p>
 
-      <button id="button4">Press</button>
+      <button id="button4">Proceed</button>
     </div>
 
 </div>
@@ -324,6 +325,9 @@ $("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow'
 
 function slide_div4(){
   document.getElementById("div4").style.display = "block";
+  document.getElementById("div1").style.display = "none";
+  document.getElementById("div2").style.display = "none";
+  document.getElementById("div3").style.display = "none";
   $("#div4").animate({'left':100}, "slow");
 $("#div4").animate({'right':($('body').innerWidth()-$('#div4').width())}, 'slow');
 }
