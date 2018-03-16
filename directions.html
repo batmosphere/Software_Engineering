@@ -540,22 +540,24 @@ window.onclick = function(event) {
       //   });
       // };
 
-      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) 
+      {
         var me = this;
         autocomplete.bindTo('bounds', this.map);
-        autocomplete.addListener('place_changed', function() {
+        autocomplete.addListener('place_changed', function() 
+        {
           var place = autocomplete.getPlace();
           //console.log(place.geometry.location + " hello");
-          if (!place.place_id) {
-            window.alert("Please select an option from the dropdown list.");
-            return;
-          }
-          if (mode === 'ORIG') {
-            me.originPlaceId = place.place_id;
-          } else {
-            me.destinationPlaceId = place.place_id;
-          }
-          me.route();
+                  if (!place.place_id) {
+                    window.alert("Please select an option from the dropdown list.");
+                    return;
+                  }
+                  if (mode === 'ORIG') {
+                    me.originPlaceId = place.place_id;
+                  } else {
+                    me.destinationPlaceId = place.place_id;
+                  }
+                  me.route();
 
           if (!place.geometry) {
             // User entered the name of a Place that was not suggested and
@@ -566,16 +568,72 @@ window.onclick = function(event) {
 
           // If the place has a geometry, then present it on a map.
           if (place.geometry.viewport) {
+
+            var origin1 = "";
+            var origin2 = "";
             // map.fitBounds(place.geometry.viewport);
-                if (mode === 'ORIG') {
-                // me.origin_location = place.geometry.location;
-                console.log(place.geometry.location + " hello");          // //outputs the coordinates of the source 
-              } else {
-                // me.destination_location = place.geometry.location;
-                console.log(place.geometry.location + " bye");          //outputs the coordinates of the destination 
-              }
+                              if (mode === 'ORIG') {
+                              origin1 += place.geometry.location;
+                              console.log(origin1 + " " + place.name);          // //outputs the coordinates and name of the source 
+                            } else {
+                              origin2 += place.geometry.location;
+                              console.log(origin2 +  " " + place.name);          //outputs the coordinates and name of the destination 
+                            }
+
+                           // var geocoder = new google.maps.Geocoder;
+
+                            var service = new google.maps.DistanceMatrixService;
+                            service.getDistanceMatrix({
+                              origins: [origin1],
+                              destinations: [origin2],
+                              travelMode: 'DRIVING',
+                              unitSystem: google.maps.UnitSystem.METRIC,
+                              avoidHighways: false,
+                              avoidTolls: false
+                            }, function(response, status) {
+                              if (status !== 'OK') {
+                                alert('Error was: ' + status);
+                              } 
+                              else 
+                              {
+                                var originList = response.originAddresses;
+                                var destinationList = response.destinationAddresses;
+                                // var outputDiv = document.getElementById('output');
+                                // outputDiv.innerHTML = '';
+                                // deleteMarkers(markersArray);
+
+                                var showGeocodedAddressOnMap = function(asDestination) {
+                                  var icon = asDestination ? destinationIcon : originIcon;
+                                  return function(results, status) {
+                                    if (status === 'OK') {
+                                      //map.fitBounds(bounds.extend(results[0].geometry.location));
+                                      // markersArray.push(new google.maps.Marker({
+                                      //   map: map,
+                                      //   position: results[0].geometry.location,
+                                      //   icon: icon
+                                      // }));
+                                    } else {
+                                     // alert('Geocode was not successful due to: ' + status);
+                                    }
+                                  };
+                                };
+
+                                for (var i = 0; i < originList.length; i++) {
+                                  var results = response.rows[i].elements;
+                                  // geocoder.geocode({'address': originList[i]},
+                                  //     showGeocodedAddressOnMap(false));
+                                  for (var j = 0; j < results.length; j++) {
+                                    // geocoder.geocode({'address': destinationList[j]},
+                                    //     showGeocodedAddressOnMap(true));
+                                    console.log(results[j].distance );
+                                  }
+                                }
+                              }
+                            });
+                          }
+
             // console.log(place.geometry.location + " hello");
-          } else {
+          else {
             // map.setCenter(place.geometry.location);
             // map.setZoom(17);  // Why 17? Because it looks good.
           }
