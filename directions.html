@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+
+<?php
+include('db.php');
+
+   $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+
+
+session_start();
+   
+   $user_check = $_SESSION['username'];
+   
+   $ses_sql = mysqli_query($db,"select username from admin where username = '$user_check' ");
+   
+   $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
+   
+   $login_session = $row['username'];
+   
+   
+
+?><!DOCTYPE html>
 <html>
   <head>
     <title>Taxi Hailing Application</title>
@@ -296,6 +315,7 @@ background-color: white;}
 
    <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <h2 style="color: white; float: left; font-size: 1.3em; margin-left: 40px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> 
       <a  id="myBtn1" onclick="document.getElementById('about').style.display='block'">About</a>
       <a  id="myBtn2" onclick="document.getElementById('team').style.display='block'">Team</a>
       <a  id="myBtn3" onclick="document.getElementById('logout').style.display='block'">Log out</a>
@@ -414,6 +434,9 @@ background-color: white;}
             </div>
 
           </div>
+
+
+          <div id="output" style="height: 100px; width: 100px; background-color: red"></div>
 <script>
 
  var modal1 = document.getElementById('about');
@@ -488,6 +511,11 @@ window.onclick = function(event) {
       var destination_location = null;
 
 
+
+      
+      var flag = 0;
+
+
       function initMap() {
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -495,16 +523,33 @@ window.onclick = function(event) {
           center: {lat: 17.5450, lng: 78.5718},
           zoom: 12
         });
-
         new AutocompleteDirectionsHandler(map);
         // new distance(map);
+
       }
 
 
+var rad = function(x) {
+  return x * Math.PI / 180;
+};
+
+var getDistance = function(p1, p2, p3, p4) {
+  var R = 6378137; // Earth’s mean radius in meter
+  var dLat = rad(p3 - p1);
+  var dLong = rad(p4 - p2);
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(rad(p1)) * Math.cos(rad(p3)) *
+    Math.sin(dLong / 2) * Math.sin(dLong / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c;
+  return d; // returns the distance in meter
+};
       /**
         * @constructor
        */
       function AutocompleteDirectionsHandler(map) {
+        
+        // console.log("flag = " + flag);
         this.map = map;
         this.originPlaceId = null;
         this.destinationPlaceId = null;
@@ -528,21 +573,11 @@ window.onclick = function(event) {
         this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
 
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-        console.log(originInput + " hello");
+        // console.log(originInput + " hello");
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
         // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
       }
 
-      // Sets a listener on a radio button to change the filter type on Places
-      // Autocomplete.
-      // AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
-      //   var radioButton = document.getElementById(id);
-      //   var me = this;
-      //   radioButton.addEventListener('click', function() {
-      //     me.travelMode = mode;
-      //     me.route();
-      //   });
-      // };
 
       AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) 
       {
@@ -558,8 +593,10 @@ window.onclick = function(event) {
                   }
                   if (mode === 'ORIG') {
                     me.originPlaceId = place.place_id;
+                    
                   } else {
                     me.destinationPlaceId = place.place_id;
+                    //flag = 1;
                   }
                   me.route();
 
@@ -572,69 +609,33 @@ window.onclick = function(event) {
 
           // If the place has a geometry, then present it on a map.
           if (place.geometry.viewport) {
-
-            var origin1 = "";
-            var origin2 = "";
+            var flag = 0;
+            var origin1_latitude = "";
+            var origin2_latitude = "";
+            var origin1_longitude = "";
+            var origin2_longitude = "";
             // map.fitBounds(place.geometry.viewport);
                               if (mode === 'ORIG') {
-                              origin1 += place.geometry.location;
-                              console.log(origin1 + " " + place.name);          // //outputs the coordinates and name of the source 
+                              origin1_latitude += place.geometry.location.lat();
+                              origin1_longitude+= place.geometry.location.lng();
+                              console.log(origin1_latitude + origin1_longitude + " " + place.name);   
+                              flag = 0;       // //outputs the coordinates and name of the source 
                             } else {
-                              origin2 += place.geometry.location;
-                              console.log(origin2 +  " " + place.name);          //outputs the coordinates and name of the destination 
+                              origin2_latitude += place.geometry.location.lat();
+                              origin2_longitude += place.geometry.location.lng();
+                              console.log(origin2_latitude + origin2_longitude  +  " " + place.name);          //outputs the coordinates and name of the destination 
+
+                              flag = 1;
                             }
-
-                           // var geocoder = new google.maps.Geocoder;
-
-                            var service = new google.maps.DistanceMatrixService;
-                            service.getDistanceMatrix({
-                              origins: [origin1],
-                              destinations: [origin2],
-                              travelMode: 'DRIVING',
-                              unitSystem: google.maps.UnitSystem.METRIC,
-                              avoidHighways: false,
-                              avoidTolls: false
-                            }, function(response, status) {
-                              if (status !== 'OK') {
-                                alert('Error was: ' + status);
-                              } 
-                              else 
-                              {
-                                var originList = response.originAddresses;
-                                var destinationList = response.destinationAddresses;
-                                // var outputDiv = document.getElementById('output');
-                                // outputDiv.innerHTML = '';
-                                // deleteMarkers(markersArray);
-
-                                var showGeocodedAddressOnMap = function(asDestination) {
-                                  var icon = asDestination ? destinationIcon : originIcon;
-                                  return function(results, status) {
-                                    if (status === 'OK') {
-                                      //map.fitBounds(bounds.extend(results[0].geometry.location));
-                                      // markersArray.push(new google.maps.Marker({
-                                      //   map: map,
-                                      //   position: results[0].geometry.location,
-                                      //   icon: icon
-                                      // }));
-                                    } else {
-                                     // alert('Geocode was not successful due to: ' + status);
-                                    }
-                                  };
-                                };
-
-                                for (var i = 0; i < originList.length; i++) {
-                                  var results = response.rows[i].elements;
-                                  // geocoder.geocode({'address': originList[i]},
-                                  //     showGeocodedAddressOnMap(false));
-                                  for (var j = 0; j < results.length; j++) {
-                                    // geocoder.geocode({'address': destinationList[j]},
-                                    //     showGeocodedAddressOnMap(true));
-                                    console.log(results[j].distance );
-                                  }
-                                }
-                              }
-                            });
-                          }
+                    if(flag)
+                    {
+                        var distance = parseInt(getDistance(origin1_latitude, origin1_longitude, origin2_latitude, origin2_longitude));
+                        // console.log("the distance in int is " + distance);
+                        distance = (8806500 - distance ) * 2.484 / 1000;    //FINAL DISTANCE
+                        // console.log("the distance is " + distance);
+                        flag = -1;
+                    }
+    }
 
             // console.log(place.geometry.location + " hello");
           else {
