@@ -328,13 +328,13 @@ background-color: white;}
     <span style="font-size:50px; cursor:pointer; z-index: 200; position: relative; margin-left: 15px; top: 12px;"  onclick="openNav()">&#9776;</span>
 
 
-
+    <form method="post" action="cab_options.php">
     <input id="origin-input" class="controls" type="text"
         placeholder="Enter an origin location">
     <input id="destination-input" class="controls" type="text"
         placeholder="Enter a destination location">
-    <input  id="proceed" class="controls" value="Proceed" >
-
+    <input  id="proceed" class="controls" value="Proceed" name="submit" type="submit">
+    </form>
 
 
 
@@ -486,6 +486,7 @@ window.onclick = function(event) {
           document.getElementById("mySidenav").style.width = "250px";
            document.getElementById("map").style.marginLeft = "250px";
            document.getElementById("proceed").style.marginLeft = "250px";
+          document.getElementById('map').backgroundColor = "rgba(0,0,0,0.4)";
           document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
       }
 
@@ -494,6 +495,7 @@ window.onclick = function(event) {
           document.getElementById("map").style.marginLeft = "0px";
            document.getElementById("proceed").style.marginLeft = "95px";
           document.body.style.backgroundColor = "white";
+          document.getElementById('map').backgroundColor = "rgba(0,0,0,0.4)";
 
         }
       

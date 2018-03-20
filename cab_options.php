@@ -9,7 +9,7 @@ session_start();
    
    $user_check = $_SESSION['username'];
    
-   $ses_sql = mysqli_query($db,"select username from admin where username = '$user_check' ");
+   $ses_sql = mysqli_query($db,"select username from customer where username = '$user_check' ");
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
@@ -296,7 +296,9 @@ background-color: white;}
     </div>
     <div class="modal-body">
       <p>If you want to logout, click this button, else click anywhere outside the box or the close button above.</p> 
-      <button id="logoutbutton">Logout</button> 
+       <form method="post" action="logout.php">
+      <button id="logoutbutton"><a href="logout.php">Logout</button> 
+      </form>
     </div>
     <!-- <div class="modal-footer">
       
