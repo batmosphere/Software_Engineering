@@ -1,3 +1,13 @@
+<?php
+	//Start session
+	session_start();
+	
+	//Unset the variables stored in session
+	unset($_SESSION['id']);
+	unset($_SESSION['username']);
+	
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -138,7 +148,7 @@
 				
 
 			  
-
+			<form method="post" action="employeelogin.php">
 			  <div class="floatright">
 			      <input class="sub" name="submit" type="submit" style="margin-right: 50px; margin-left: 0px; width: 80px;" value="Log In" />		
 			  </div>
@@ -153,6 +163,7 @@
 			      <input type="text" placeholder="Enter Username" name="username" required>
 			  </div>
 
+			  </form>
 			 </div>
 
 
@@ -168,7 +179,11 @@
 		</div>
 
 		<div id="signup">
+
+
 			<h2 style="font-size: 1.6em; position: relative; left: 120px;">Create a New Account</h2>
+			
+			<form method="post" action="createaccount.php">
 			<input style="position: relative;  width: 170px;" type="text" name="firstname" placeholder="Enter First Name" >
 			<input style="position: relative;  width: 170px;" type="text" name="lastname" placeholder="Enter Last Name" >
 			<input  type="text" name="username" placeholder="Enter BITS ID" >

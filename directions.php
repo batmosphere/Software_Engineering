@@ -9,7 +9,7 @@ session_start();
    
    $user_check = $_SESSION['username'];
    
-   $ses_sql = mysqli_query($db,"select username from admin where username = '$user_check' ");
+   $ses_sql = mysqli_query($db,"select username from customer where username = '$user_check' ");
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
@@ -17,7 +17,9 @@ session_start();
    
    
 
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Taxi Hailing Application</title>
@@ -167,7 +169,8 @@ session_start();
       }*/
 
       #logoutbutton
-      {
+      { text-decoration: none;
+        color: white;
         background-color: #ff8e8e;
         display: block;
         position: relative;
@@ -405,7 +408,10 @@ background-color: white;}
     </div>
     <div class="modal-body">
       <p>If you want to logout, click this button, else click anywhere outside the box or the close button above.</p> 
-      <button id="logoutbutton">Logout</button> 
+      <form method="post" action="logout.php">
+      <button id="logoutbutton"><a href="logout.php">Logout</button> 
+      </form>
+
     </div>
     <!-- <div class="modal-footer">
       
@@ -632,6 +638,7 @@ var getDistance = function(p1, p2, p3, p4) {
                         var distance = parseInt(getDistance(origin1_latitude, origin1_longitude, origin2_latitude, origin2_longitude));
                         // console.log("the distance in int is " + distance);
                         distance = (8806500 - distance ) * 2.484 / 1000;    //FINAL DISTANCE
+                        document.getElementById('output').innerHTML = distance;
                         // console.log("the distance is " + distance);
                         flag = -1;
                     }
