@@ -186,9 +186,12 @@
 			<form method="post" action="createaccount.php">
 			<input style="position: relative;  width: 170px;" type="text" name="firstname" placeholder="Enter First Name" >
 			<input style="position: relative;  width: 170px;" type="text" name="lastname" placeholder="Enter Last Name" >
+            <input  type="text" name="number" placeholder="Enter Contact No." >
+            <input type="text" name="address" placeholder="Enter Address" >
 			<input  type="text" name="username" placeholder="Enter BITS ID" >
 			<input type="password" name="password" placeholder="Enter Password">
 			<input style="height: 40px; margin-top: -5px; width: 384px;" class="sub" name="submit" type="submit" value="Create Account" style="margin-left: 0px;" />
+        </form>
 		</div>
 	</div>
 

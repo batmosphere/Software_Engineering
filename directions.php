@@ -318,7 +318,7 @@ background-color: white;}
 
    <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <h2 style="color: white; float: left; font-size: 1.3em; margin-left: 40px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> 
+      <h2 style="color: white; float: left; font-size: 1.3em; margin-left: 30px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> 
       <a  id="myBtn1" onclick="document.getElementById('about').style.display='block'">About</a>
       <a  id="myBtn2" onclick="document.getElementById('team').style.display='block'">Team</a>
       <a  id="myBtn3" onclick="document.getElementById('logout').style.display='block'">Log out</a>
