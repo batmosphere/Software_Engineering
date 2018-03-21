@@ -5,6 +5,8 @@
 	//Unset the variables stored in session
 	unset($_SESSION['id']);
 	unset($_SESSION['username']);
+    unset($_SESSION['source']);
+    unset($_SESSION['destination']);
 	
 ?>
 

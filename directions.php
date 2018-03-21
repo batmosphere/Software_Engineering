@@ -329,10 +329,8 @@ background-color: white;}
 
 
     <form method="post" action="cab_options.php">
-    <input id="origin-input" class="controls" type="text"
-        placeholder="Enter an origin location">
-    <input id="destination-input" class="controls" type="text"
-        placeholder="Enter a destination location">
+    <input id="origin-input" class="controls" type="text" name="source" placeholder="Enter an origin location">
+    <input id="destination-input" class="controls" type="text" name="destination" placeholder="Enter a destination location">
     <input  id="proceed" class="controls" value="Proceed" name="submit" type="submit">
     </form>
 
@@ -622,27 +620,40 @@ var getDistance = function(p1, p2, p3, p4) {
             var origin2_latitude = "";
             var origin1_longitude = "";
             var origin2_longitude = "";
+            var source_name = "";
+            var destination_name = "";
             // map.fitBounds(place.geometry.viewport);
                               if (mode === 'ORIG') {
                               origin1_latitude += place.geometry.location.lat();
                               origin1_longitude+= place.geometry.location.lng();
+                              source_name = place.name;
+
+                              document.cookie = "source="+source_name;
                               console.log(origin1_latitude + origin1_longitude + " " + place.name);   
                               flag = 0;       // //outputs the coordinates and name of the source 
                             } else {
                               origin2_latitude += place.geometry.location.lat();
                               origin2_longitude += place.geometry.location.lng();
+                              destination_name = place.name;
+
+                              document.cookie = "destination="+destination_name;
                               console.log(origin2_latitude + origin2_longitude  +  " " + place.name);          //outputs the coordinates and name of the destination 
 
                               flag = 1;
                             }
                     if(flag)
-                    {
+                    {   
+                          
                         var distance = parseInt(getDistance(origin1_latitude, origin1_longitude, origin2_latitude, origin2_longitude));
                         // console.log("the distance in int is " + distance);
                         distance = (8806500 - distance ) * 2.484 / 1000;    //FINAL DISTANCE
                         document.getElementById('output').innerHTML = distance;
                         // console.log("the distance is " + distance);
                         flag = -1;
+
+                        document.cookie = "distance="+distance;                      
+                        
+                        
                     }
     }
 

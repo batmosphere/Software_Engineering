@@ -6,8 +6,23 @@ include('db.php');
 
 
 session_start();
-   
+
+
+  
+        $source = $_COOKIE['source']; // Outputs : Hi John Doe
+      
+ 
+        $destination = $_COOKIE['destination']; // Outputs : Hi John Doe
+      
+
+ 
+    $distance = $_COOKIE['distance']; // Outputs : Hi John Doe
+    
    $user_check = $_SESSION['username'];
+
+    $_SESSION['source']  = $source;
+
+    $_SESSION['destination'] = $destination ;
    
    $ses_sql = mysqli_query($db,"select username from customer where username = '$user_check' ");
    
@@ -220,7 +235,10 @@ background-color: white;}
   
   <span style="font-size:40px; cursor:pointer; z-index: 200; position: fixed;"  onclick="openNav()">&#9776;</span>
 
-  <div style="" class="w3-container  w3-animate-opacity " id="div1"><p>Available Cab opions</p>
+  <div style="" class="w3-container  w3-animate-opacity " id="div1"><p>Available Cab opions</p> 
+    <h2> <?php echo $source; ?> is the source</h2>
+    <h2> <?php echo $destination; ?> is the destination</h2>
+    <h2> <?php echo $distance; ?> is the distance</h2>
       <button id="button1" onclick="slide_div2()">Continue</button>
     </div>
     
