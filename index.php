@@ -21,8 +21,9 @@
     <style type="text/css">
 
     	body
-    	{
+    	{   background-color: #dfdfdf; 
     		margin: auto;
+            overflow: hidden;
     		padding: auto;
     		font-family: 'Fira Sans', sans-serif;
     	}
@@ -30,7 +31,7 @@
         
        
     	#top
-    	{	
+    	{	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     		color: white;
     		width: 100%;
     		height: 70px;
@@ -42,7 +43,7 @@
     	}
 
     	#bottom
-    	{
+    	{   
     		float: left;
     		width: 1130px;
     		height: 577px;
@@ -59,6 +60,7 @@
     		position: relative;
     		left: 50px;
     		bottom: 10px;
+
     	}
 
 
@@ -76,6 +78,7 @@
     		position: relative;
     		top:  4px;
     		left: 100px;
+
     		/*background-color: yellow;*/
     		
     	}
@@ -84,13 +87,17 @@
     	{
     		width: 150px;
     		margin: 10px;
+            margin-top: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            text-align: center;
     	}
     	#inputs label
     	{	text-align: center;
     		color: white;
     		margin: 30px;
-    		margin-top: 100px;
+    		margin-top: -20px;
     		font-size: 0.9em;
+            font-weight: bold;
     		/*background-color: yellow;*/
     	}
     	.floatright
@@ -131,18 +138,20 @@
     		width: 375px;
     		position: relative;
     		left: 60px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            text-align: center;
     	}
     </style>
 
 </head>
 
 
-<body>
+<body scroll="no">
 
 
 	<div id="top">
 		<div id="name">
-			<h2 style="position: relative; bottom: 5px; font-size: 1.6em;">Taxi Hailing Application</h2>
+			<h2 style="position: relative; bottom: 8px; font-size: 1.7em; text-shadow: 0.5px 0.5px 0.5px #1d1d1d;">BITS Taxi Hailing Application</h2>
 		</div>	
 
 
@@ -152,16 +161,16 @@
 			  
 			<form method="post" action="employeelogin.php">
 			  <div class="floatright">
-			      <input class="sub" name="submit" type="submit" style="margin-right: 50px; margin-left: 0px; width: 80px;" value="Log In" />		
+			      <input class="sub" name="submit" type="submit" style="margin-top: -30px; margin-right: 50px; margin-left: 0px; width: 80px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" value="Log In" />		
 			  </div>
 
 			  <div class="floatright">
-			      <label style="font-size: 1em;">Password</label><br>
+			      <!-- <label style="font-size: 1em;">Password</label><br> -->
 			      <input type="password" placeholder="Enter Password" name="password" required>
 			  </div>      
 
 			  <div class="floatright">
-			<label style="font-size: 1em;">Username</label><br>
+			<!-- <label style="font-size: 1em;">Username</label><br> -->
 			      <input type="text" placeholder="Enter Username" name="username" required>
 			  </div>
 

@@ -13,9 +13,11 @@ session_start();
     		$password = $_POST['password'];
         $number = $_POST['number'];
         $address = $_POST['address'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
 
       
-      mysqli_query($db,"insert into customer (username, contact_no, address, password) VALUES ('$username','$number','$address', '$password')");
+      mysqli_query($db,"insert into customer (username, contact_no, address, password, First_Name, Last_Name) VALUES ('$username','$number','$address', '$password', '$firstname', '$lastname')");
 
        $sql = "SELECT username FROM customer WHERE username = '$username' and password = '$password'";
       $result = mysqli_query($db,$sql);

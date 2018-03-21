@@ -8,12 +8,14 @@ include('db.php');
 session_start();
    
    $user_check = $_SESSION['username'];
+
+
    
-   $ses_sql = mysqli_query($db,"select username from customer where username = '$user_check' ");
+   $ses_sql = mysqli_query($db,"select First_Name from customer where username = '$user_check' ");
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
-   $login_session = $row['username'];
+   $login_session = $row['First_Name'];
    
    
 
@@ -29,8 +31,8 @@ session_start();
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 125%;
-        position: relative;
+        height: 100%;
+        position: fixed;
         top: -186px;
         z-index: 1;
         width: 100%;
@@ -38,7 +40,8 @@ session_start();
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 100%;
+        height: 110%;
+        overflow: hidden;
         margin: 0;
         padding: 0;
         border-radius: 8px;
@@ -183,13 +186,35 @@ session_start();
         -moz-box-sizing: border-box;
         height: 35px;
         outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        font-size: 1.2em;
         width: 910px;
         text-decoration: none;
         margin-top: 30px;
         border-radius: 8px;
         font-weight: bolder;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
       }
+
+
+      a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
 
 
 .sidenav {
@@ -203,6 +228,7 @@ session_start();
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
 }
 
 .sidenav a {
@@ -314,11 +340,11 @@ background-color: white;}
 }
     </style>
   </head>
-  <body>  
+  <body scroll="no";>  
 
    <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <h2 style="color: white; float: left; font-size: 1.3em; margin-left: 30px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> 
+      <h2 style="color: white; float: left; font-size: 1.5em; margin-left: 30px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> 
       <a  id="myBtn1" onclick="document.getElementById('about').style.display='block'">About</a>
       <a  id="myBtn2" onclick="document.getElementById('team').style.display='block'">Team</a>
       <a  id="myBtn3" onclick="document.getElementById('logout').style.display='block'">Log out</a>
@@ -329,8 +355,8 @@ background-color: white;}
 
 
     <form method="post" action="cab_options.php">
-    <input id="origin-input" class="controls" type="text" name="source" placeholder="Enter an origin location">
-    <input id="destination-input" class="controls" type="text" name="destination" placeholder="Enter a destination location">
+    <input id="origin-input" class="controls" type="text" name="source" placeholder="Enter an origin location" required="required">
+    <input id="destination-input" class="controls" type="text" name="destination" placeholder="Enter a destination location" required="required">
     <input  id="proceed" class="controls" value="Proceed" name="submit" type="submit">
     </form>
 
@@ -407,12 +433,12 @@ background-color: white;}
     <div class="modal-body">
       <p>If you want to logout, click this button, else click anywhere outside the box or the close button above.</p> 
       <form method="post" action="logout.php">
-      <button id="logoutbutton"><a href="logout.php">Logout</button> 
+        <input  id="logoutbutton"  value="Log Out" name="submit" type="submit"> 
       </form>
 
     </div>
     <!-- <div class="modal-footer">
-      
+     . 
     </div> -->
   </div>
 
@@ -440,7 +466,7 @@ background-color: white;}
           </div>
 
 
-          <div id="output" style="height: 100px; width: 100px; background-color: red"></div>
+        
 <script>
 
  var modal1 = document.getElementById('about');
@@ -648,11 +674,12 @@ var getDistance = function(p1, p2, p3, p4) {
                         // console.log("the distance in int is " + distance);
                         distance = (8806500 - distance ) * 2.484 / 1000;    //FINAL DISTANCE
                         distance = distance.toFixed(1) + " km";
-                        document.getElementById('output').innerHTML = distance;
+                        document.cookie = "distance="+distance;  
+                       // document.getElementById('output').innerHTML = distance;
                         // console.log("the distance is " + distance);
                         flag = -1;
 
-                        document.cookie = "distance="+distance;                      
+                                            
                         
                         
                     }

@@ -24,11 +24,11 @@ session_start();
 
     $_SESSION['destination'] = $destination ;
    
-   $ses_sql = mysqli_query($db,"select username from customer where username = '$user_check' ");
+   $ses_sql = mysqli_query($db,"select First_Name from customer where username = '$user_check' ");
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
-   $login_session = $row['username'];
+   $login_session = $row['First_Name'];
    
    
 
@@ -55,6 +55,7 @@ session_start();
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
 }
 
 .sidenav a {
@@ -95,6 +96,7 @@ session_start();
     width: 85%;
     height: 180px;
     background-color: #ccc;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 #div1{
   
@@ -198,7 +200,8 @@ background-color: white;}
 }
 
  #logoutbutton
-      {
+      { text-decoration: none;
+        color: white;
         background-color: #ff8e8e;
         display: block;
         position: relative;
@@ -211,20 +214,43 @@ background-color: white;}
         -moz-box-sizing: border-box;
         height: 35px;
         outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        font-size: 1.2em;
         width: 910px;
         text-decoration: none;
         margin-top: 30px;
         border-radius: 8px;
         font-weight: bolder;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
       }
+
+
+      a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
 </style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <h2 style="color: white; float: left; font-size: 1.3em; margin-left: 40px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> <br>
+      <h2 style="color: white; float: left; font-size: 1.7em; margin-left: 30px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> <br>
       <br><a  id="myBtn1" onclick="document.getElementById('about').style.display='block'">About</a>
       <a  id="myBtn2" onclick="document.getElementById('team').style.display='block'">Team</a>
       <a  id="myBtn3" onclick="document.getElementById('logout').style.display='block'">Log out</a>
@@ -235,7 +261,9 @@ background-color: white;}
   
   <span style="font-size:40px; cursor:pointer; z-index: 200; position: fixed;"  onclick="openNav()">&#9776;</span>
 
-  <div style="" class="w3-container  w3-animate-opacity " id="div1"><p>Available Cab opions</p> 
+  <div style="" class="w3-container  w3-animate-opacity " id="div1">
+    
+    <p>Available Cab opions</p> 
     <h2> <?php echo $source; ?> is the source</h2>
     <h2> <?php echo $destination; ?> is the destination</h2>
     <h2> <?php echo $distance; ?> is the distance</h2>
@@ -315,7 +343,7 @@ background-color: white;}
     <div class="modal-body">
       <p>If you want to logout, click this button, else click anywhere outside the box or the close button above.</p> 
        <form method="post" action="logout.php">
-      <button id="logoutbutton"><a href="logout.php">Logout</button> 
+      <input  id="logoutbutton"  value="Log Out" name="submit" type="submit"> 
       </form>
     </div>
     <!-- <div class="modal-footer">
