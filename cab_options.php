@@ -227,22 +227,67 @@ background-color: white;}
       a:link {
     text-decoration: none;
     color: white;
-}
+    }
 
-a:visited {
-    text-decoration: none;
-    color: white;
-}
+    a:visited {
+        text-decoration: none;
+        color: white;
+    }
 
-a:hover {
-    text-decoration: none;
-    color: white;
-}
+    a:hover {
+        text-decoration: none;
+        color: white;
+    }
 
-a:active {
-    text-decoration: none;
-    color: white;
-}
+    a:active {
+        text-decoration: none;
+        color: white;
+    }
+
+
+    .container {
+      position: relative;
+      float: left;
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      border-radius: 50%;
+      /*background-color: red;*/
+      -webkit-transition: 0.6s ease;
+      transition: 0.6s ease;
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 0px;
+    }
+
+    .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .item img {
+      /*-webkit-transition: 0.6s ease;
+      transition: 0.6s ease;*/
+      width: 70px;
+      height: 70px;
+    border-radius: 50%;
+     
+    }
+
+    .container:hover{
+      -webkit-transform: scale(1.3);
+      transform: scale(1.3);
+       
+    }
+
+    .cartype_labels
+    {
+      color: black;
+      /*font-size: 50px;*/
+      float: left;
+      
+    }
 
 </style>
 </head>
@@ -261,14 +306,57 @@ a:active {
   
   <span style="font-size:40px; cursor:pointer; z-index: 200; position: fixed;"  onclick="openNav()">&#9776;</span>
 
-  <div style="" class="w3-container  w3-animate-opacity " id="div1">
+  <div  class="w3-container  w3-animate-opacity " id="div1">
     
-    <p>Available Cab opions</p> 
-    <h2> <?php echo $source; ?> is the source</h2>
-    <h2> <?php echo $destination; ?> is the destination</h2>
-    <h2> <?php echo $distance; ?> is the distance</h2>
-      <button id="button1" onclick="slide_div2()">Continue</button>
+    <h4 style="position: relative; left: 480px; bottom: 10px;">Available Cab options</h4> 
+    <div class="container" style="margin-left: 300px;">
+      <div class="item">
+        <img  id="car_icons"  onclick="slide_div2()" src="images/images.png">
+        
+      </div>
     </div>
+
+    <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Share Cab</label>
+
+    <div class="container" style="position: relative; right: 30px;">
+      <div class="item">
+        <img id="car_icons"  onclick="slide_div2()" src="images/images.png">
+        
+      </div>
+    </div>
+
+    <label class="cartype_labels" style="position: relative;  top: 80px; right: 110px;">Mini</label>
+
+    <div class="container" style="position: relative; right: 30px;">
+      <div class="item">
+        <img id="car_icons"  onclick="slide_div2()" src="images/images.png">
+        
+      </div>
+    </div>
+
+    <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">Sedan</label>
+
+    <div class="container" style="position: relative; right: 40px;">
+      <div class="item">
+        <img id="car_icons"  onclick="slide_div2()" src="images/images.png">
+        
+      </div>
+    </div>
+
+    <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">SUV</label>
+
+
+    
+
+
+
+
+
+    <!-- <h2> <?php echo $source; ?> is the source</h2>
+    <h2> <?php echo $destination; ?> is the destination</h2>
+    <h2> <?php echo $distance; ?> is the distance</h2> -->
+<!--       <button id="button1" onclick="slide_div2()">Continue</button>
+ -->    </div>
     
     <div style="position: absolute; top: 230px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
 
