@@ -94,7 +94,7 @@ session_start();
     top: 30px;
     right: 0px;
     width: 85%;
-    height: 180px;
+    height: 270px;
     background-color: #ccc;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
@@ -286,7 +286,23 @@ background-color: white;}
       color: black;
       /*font-size: 50px;*/
       float: left;
+      margin-top: 10px;
       
+    }
+
+    .payment_div
+    {
+      width: 700px;
+      height: 250px;
+      margin-left: 100px;
+      background-color: red;
+
+    }
+    .payment
+    {
+      
+      /*margin: 20px;
+      float: left;*/
     }
 
 </style>
@@ -304,74 +320,82 @@ background-color: white;}
 
 <div id="main">
   
-  <span style="font-size:40px; cursor:pointer; z-index: 200; position: fixed;"  onclick="openNav()">&#9776;</span>
+                <span style="font-size:40px; cursor:pointer; z-index: 200; position: fixed;"  onclick="openNav()">&#9776;</span>
 
-  <div  class="w3-container  w3-animate-opacity " id="div1">
-    
-    <h4 style="position: relative; left: 480px; bottom: 10px;">Available Cab options</h4> 
-    <div class="container" style="margin-left: 300px;">
-      <div class="item">
-        <img  id="car_icons"  onclick="slide_div2()" src="images/images.png">
-        
-      </div>
-    </div>
+                <div  class="w3-container  w3-animate-opacity " id="div1">
+                  
+                  <h4 style="position: relative; left: 480px; margin-bottom: 40px; font-size: 1.2em;" >Available Cab options</h4> 
+                  <div class="container" style="margin-left: 300px;">
+                    <div class="item">
+                      <img  id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      
+                    </div>
+                  </div>
 
-    <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Share Cab</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Share Cab</label>
 
-    <div class="container" style="position: relative; right: 30px;">
-      <div class="item">
-        <img id="car_icons"  onclick="slide_div2()" src="images/images.png">
-        
-      </div>
-    </div>
+                  <div class="container" style="position: relative; right: 30px;">
+                    <div class="item">
+                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      
+                    </div>
+                  </div>
 
-    <label class="cartype_labels" style="position: relative;  top: 80px; right: 110px;">Mini</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 110px;">Mini</label>
 
-    <div class="container" style="position: relative; right: 30px;">
-      <div class="item">
-        <img id="car_icons"  onclick="slide_div2()" src="images/images.png">
-        
-      </div>
-    </div>
+                  <div class="container" style="position: relative; right: 30px;">
+                    <div class="item">
+                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      
+                    </div>
+                  </div>
 
-    <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">Sedan</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">Sedan</label>
 
-    <div class="container" style="position: relative; right: 40px;">
-      <div class="item">
-        <img id="car_icons"  onclick="slide_div2()" src="images/images.png">
-        
-      </div>
-    </div>
+                  <div class="container" style="position: relative; right: 40px;">
+                    <div class="item">
+                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      
+                    </div>
+                  </div>
 
-    <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">SUV</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">SUV</label>
 
+                  
+              <!--       <button id="button1" onclick="slide_div2()">Continue</button>
+               -->    </div>
+                  
+      <!-- <div style="position: absolute; top: 230px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
 
-    
+        <button id="button2" onclick="slide_div3()">Continue</button>
+      </div> -->
+                  
+                    <div style="position: absolute; top: 335px;" class="w3-container  w3-animate-opacity " id="div3">    
 
+                      <h4 style="position: relative; left: 480px; margin-bottom: 40px; font-size: 1.2em;" >Payment Options</h4>
 
+                      <div class="payment_div">
+                       <!-- <form> -->
+                        <input class="payment" type="radio" name="payment" value="Net" checked> Net Banking<br>
+                        <input class="payment" type="radio" name="payment" value="Credit"> Credit Card<br>
+                        <input class="payment" type="radio" name="payment" value="Debit"> Debit Card <br>
+                        <input class="payment" type="radio" name="payment" value="paytm"> PayTm<br>
+                        <input type="submit" name="submit" id="button3" value="Proceed" onclick="slide_div4()">
+                      <!-- </form>  -->
+                      </div>
+                      
+                    <!-- <button id="button3" onclick="slide_div4()">Continue</button> -->
+                  </div>
+                  
+                    <div style="position: absolute; top: 30px;" class="w3-container  w3-animate-opacity " id="div4">    <p>Receipt and mail</p>
+                 
 
+                  <h2> <?php echo $source; ?> is the source</h2>
+                  <h2> <?php echo $destination; ?> is the destination</h2>
+                  <h2> <?php echo $distance; ?> is the distance</h2>
 
-
-    <!-- <h2> <?php echo $source; ?> is the source</h2>
-    <h2> <?php echo $destination; ?> is the destination</h2>
-    <h2> <?php echo $distance; ?> is the distance</h2> -->
-<!--       <button id="button1" onclick="slide_div2()">Continue</button>
- -->    </div>
-    
-    <div style="position: absolute; top: 230px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
-
-      <button id="button2" onclick="slide_div3()">Continue</button>
-    </div>
-    
-      <div style="position: absolute; top: 435px;" class="w3-container  w3-animate-opacity " id="div3">    <p>payment options</p>
-
-      <button id="button3" onclick="slide_div4()">Continue</button>
-    </div>
-    
-      <div style="position: absolute; top: 30px;" class="w3-container  w3-animate-opacity " id="div4">    <p>Receipt and mail</p>
-
-      <button id="button4">Proceed</button>
-    </div>
+                    <button id="button4">Proceed</button>
+                  </div>
 
 </div>
 
@@ -469,11 +493,11 @@ $(document).ready(function() {
 $("#div1").animate({'right':($('body').innerWidth()-$('#div1').width())}, 'slow');
 });
 
-function slide_div2(){
-  document.getElementById("div2").style.display = "block";
-  $("#div2").animate({'left':100}, "slowest");
-$("#div2").animate({'right':-$('#div2').width()}, 'slow');
-}
+// function slide_div2(){
+//   document.getElementById("div2").style.display = "block";
+//   $("#div2").animate({'left':100}, "slowest");
+// $("#div2").animate({'right':-$('#div2').width()}, 'slow');
+// }
 
 function slide_div3(){
   document.getElementById("div3").style.display = "block";
@@ -484,7 +508,7 @@ $("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow'
 function slide_div4(){
   document.getElementById("div4").style.display = "block";
   document.getElementById("div1").style.display = "none";
-  document.getElementById("div2").style.display = "none";
+  // document.getElementById("div2").style.display = "none";
   document.getElementById("div3").style.display = "none";
   $("#div4").animate({'left':100}, "slow");
 $("#div4").animate({'right':($('body').innerWidth()-$('#div4').width())}, 'slow');
@@ -533,7 +557,7 @@ window.onclick = function(event) {
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("div1").style.marginLeft = "250px";
-    document.getElementById("div2").style.marginLeft = "250px";
+    // document.getElementById("div2").style.marginLeft = "250px";
     document.getElementById("div3").style.marginLeft = "250px";
     document.getElementById("div4").style.marginLeft = "250px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
@@ -542,7 +566,7 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("div1").style.marginLeft = "0px";
-    document.getElementById("div2").style.marginLeft = "0px";
+    // document.getElementById("div2").style.marginLeft = "0px";
     document.getElementById("div3").style.marginLeft = "0px";
     document.getElementById("div4").style.marginLeft = "0px";
     document.body.style.backgroundColor = "white";
