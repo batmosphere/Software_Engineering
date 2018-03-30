@@ -97,6 +97,7 @@ session_start();
     height: 270px;
     background-color: #ccc;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
 #div1{
   
@@ -283,7 +284,7 @@ background-color: white;}
 
     .cartype_labels
     {
-      color: black;
+      
       /*font-size: 50px;*/
       float: left;
       margin-top: 10px;
@@ -292,17 +293,32 @@ background-color: white;}
 
     .payment_div
     {
-      width: 700px;
-      height: 250px;
-      margin-left: 100px;
-      background-color: red;
+      width: 1000px;
+      height: 150px;
+      margin-left: 150px;
+
 
     }
     .payment
     {
-      
-      /*margin: 20px;
-      float: left;*/
+      border-radius: 10px;
+      width: 160px;
+      margin: 30px;
+      padding: 20px;
+      float: left;
+
+    }
+
+    #return
+    {
+      position: relative;
+      top: 220px;
+      margin: 20px;
+      margin-bottom: 70px;
+      font-size: 1.4em;
+      font-weight: bold;
+      width: 1100px;
+      height: 40px;
     }
 
 </style>
@@ -324,12 +340,13 @@ background-color: white;}
 
                 <div  class="w3-container  w3-animate-opacity " id="div1">
                   
-                  <h4 style="position: relative; left: 480px; margin-bottom: 40px; font-size: 1.2em;" >Available Cab options</h4> 
+
+                  <h4 style="position: relative; left: 440px; margin-bottom: 40px; font-size: 1.7em; font-weight: bold;" >Available Cab options</h4> 
+
                   <div class="container" style="margin-left: 300px;">
                     <div class="item">
                       <img  id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      
-                    </div>
+                      </div>
                   </div>
 
                   <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Share Cab</label>
@@ -337,8 +354,7 @@ background-color: white;}
                   <div class="container" style="position: relative; right: 30px;">
                     <div class="item">
                       <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      
-                    </div>
+                      </div>
                   </div>
 
                   <label class="cartype_labels" style="position: relative;  top: 80px; right: 110px;">Mini</label>
@@ -346,8 +362,7 @@ background-color: white;}
                   <div class="container" style="position: relative; right: 30px;">
                     <div class="item">
                       <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      
-                    </div>
+                      </div>
                   </div>
 
                   <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">Sedan</label>
@@ -355,15 +370,14 @@ background-color: white;}
                   <div class="container" style="position: relative; right: 40px;">
                     <div class="item">
                       <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      
-                    </div>
+                      </div>
                   </div>
 
                   <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">SUV</label>
 
                   
-              <!--       <button id="button1" onclick="slide_div2()">Continue</button>
-               -->    </div>
+              <!--       <button id="button1" onclick="slide_div2()">Continue</button>-->
+          </div>
                   
       <!-- <div style="position: absolute; top: 230px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
 
@@ -372,29 +386,33 @@ background-color: white;}
                   
                     <div style="position: absolute; top: 335px;" class="w3-container  w3-animate-opacity " id="div3">    
 
-                      <h4 style="position: relative; left: 480px; margin-bottom: 40px; font-size: 1.2em;" >Payment Options</h4>
+                      <h4 style="position: relative; left: 470px; margin-bottom: 30px; font-size: 1.7em; font-weight: bold;" >Payment Options</h4>
 
                       <div class="payment_div">
                        <!-- <form> -->
-                        <input class="payment" type="radio" name="payment" value="Net" checked> Net Banking<br>
-                        <input class="payment" type="radio" name="payment" value="Credit"> Credit Card<br>
-                        <input class="payment" type="radio" name="payment" value="Debit"> Debit Card <br>
-                        <input class="payment" type="radio" name="payment" value="paytm"> PayTm<br>
-                        <input type="submit" name="submit" id="button3" value="Proceed" onclick="slide_div4()">
+                        <button class="payment" onclick="slide_div4()"; type="radio" name="payment" value="Net" checked> Net Banking </button>
+                        <button class="payment"onclick="slide_div4()"; type="radio" name="payment" value="Credit"> Credit Card </button>
+                        <button class="payment"onclick="slide_div4()"; type="radio" name="payment" value="Debit"> Debit Card </button> 
+                        <button class="payment"onclick="slide_div4()"; type="radio" name="payment" value="paytm"> PayTm </button>
+                        
+                        <!-- <input type="submit" name="submit" id="button3" value="Proceed" onclick="slide_div4()"> -->
                       <!-- </form>  -->
                       </div>
                       
                     <!-- <button id="button3" onclick="slide_div4()">Continue</button> -->
                   </div>
                   
-                    <div style="position: absolute; top: 30px;" class="w3-container  w3-animate-opacity " id="div4">    <p>Receipt and mail</p>
-                 
+                    <div style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div4">    
+
+                      <h4 style="position: relative; left: 500px; margin-bottom: 30px; font-size: 1.7em; font-weight: bold;" >Trip Details</h4>
 
                   <h2> <?php echo $source; ?> is the source</h2>
                   <h2> <?php echo $destination; ?> is the destination</h2>
                   <h2> <?php echo $distance; ?> is the distance</h2>
 
-                    <button id="button4">Proceed</button>
+                  <form method="post" action="directions.php">
+                    <button id="return" type="submit">Return to Trip</button>
+                  </form>
                   </div>
 
 </div>
@@ -502,6 +520,10 @@ $("#div1").animate({'right':($('body').innerWidth()-$('#div1').width())}, 'slow'
 function slide_div3(){
   document.getElementById("div3").style.display = "block";
   $("#div3").animate({'left':100}, "slow");
+  document.getElementById("div1").style.backgroundColor = "rgba(0,0,0,0.6)";
+  document.getElementById("div1").style.color = "white";
+  document.getElementsByClassName("cartype_labels").style.color = "white";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.5)";
 $("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
 }
 
@@ -511,6 +533,7 @@ function slide_div4(){
   // document.getElementById("div2").style.display = "none";
   document.getElementById("div3").style.display = "none";
   $("#div4").animate({'left':100}, "slow");
+  document.body.style.backgroundColor = "white";
 $("#div4").animate({'right':($('body').innerWidth()-$('#div4').width())}, 'slow');
 }
 

@@ -83,7 +83,8 @@ session_start();
         font-weight: bolder;
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
-        z-index: 200;
+        position: relative;
+        z-index: 2;
         width: 350px;
         text-decoration: none;
         margin-top: 35px;
@@ -338,9 +339,75 @@ background-color: white;}
     background-color: #ffbf00;
     color: white;
 }
+
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animateleft;
+  -webkit-animation-duration: 1s;
+  animation-name: animateleft;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  /*text-align: center;*/
+  z-index: 2;
+}
     </style>
   </head>
-  <body scroll="no";>  
+
+
+  <body scroll="no"; onload="myFunction()" style="margin:0;">  
+
+
+    <div id="loader"></div>
+
+
+
+
+<!-- <div style="display:none;" id="myDiv" class="animate-bottom"> -->
+
+
+
 
    <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -353,14 +420,16 @@ background-color: white;}
 
     <span style="font-size:50px; cursor:pointer; z-index: 200; position: relative; margin-left: 15px; top: 12px;"  onclick="openNav()">&#9776;</span>
 
+    <div style="display:none;" id="myDiv" class="animate-bottom">
 
     <form method="post" action="cab_options.php">
-    <input id="origin-input" class="controls" type="text" name="source" placeholder="Enter an origin location" required="required">
-    <input id="destination-input" class="controls" type="text" name="destination" placeholder="Enter a destination location" required="required">
+    <input id="origin-input" class="controls" type="text" name="source" placeholder="Enter an origin location" required>
+    <input id="destination-input" class="controls" type="text" name="destination" placeholder="Enter a destination location" required>
     <input  id="proceed" class="controls" value="Proceed" name="submit" type="submit">
     </form>
 
 
+</div>
 
 
   <!--   <div id="cabs" >
@@ -371,7 +440,6 @@ background-color: white;}
 
 
   <div id="map"></div>
-
 
 
 
@@ -466,8 +534,27 @@ background-color: white;}
           </div>
 
 
-        
+<!-- </div> -->
 <script>
+
+
+  var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+    document.getElementById("map").style.display = "block";
+}
+
+
+
+
+
+
 
  var modal1 = document.getElementById('about');
  var modal2 = document.getElementById('team');

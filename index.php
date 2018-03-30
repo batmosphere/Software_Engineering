@@ -25,6 +25,7 @@
     		margin: auto;
             overflow: hidden;
     		padding: auto;
+            text-overflow: ellipsis;
     		font-family: 'Fira Sans', sans-serif;
     	}
         
