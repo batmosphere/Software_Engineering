@@ -89,45 +89,19 @@ session_start();
   .sidenav a {font-size: 18px;}
 }
 
-#div1,#div2,#div3,#div4 {
+#div1 {
     position: absolute;
     top: 30px;
     right: 0px;
     width: 85%;
-    height: 270px;
+    color: white;
+    height: 550px;
     background-color: rgba(0,0,0,0.6);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    border: 2px solid black;
-    color: white;
-    text-decoration: none;
-    text-shadow: 1px 
+    transition: margin-left .3s;
+    border: 2px solid white;
 }
-#div1{
-  
-  transition: margin-left .3s;
-    padding: 16px;
-}
-#div2{
-  display: none;
-  transition: margin-left .3s;
-    padding: 16px;
-}
-#div3{
-  display: none;
-  transition: margin-left .3s;
-    padding: 16px;
-}
-#div4{
-  display: none;
-  transition: margin-left .3s;
-    padding: 16px;
-    height: 550px;
-}
-
-
-
-
 
 
 .modal {
@@ -249,101 +223,17 @@ background-color: white;}
         color: white;
     }
 
-
-    .container {
+    #return
+    {
       position: relative;
-      float: left;
-      width: 70px;
-      height: 70px;
-      overflow: hidden;
-      border-radius: 50%;
-      /*background-color: red;*/
-      -webkit-transition: 0.6s ease;
-      transition: 0.6s ease;
-      margin-left: 30px;
-      margin-right: 30px;
-      margin-top: 0px;
-    }
-
-    .item {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .item img {
-      /*-webkit-transition: 0.6s ease;
-      transition: 0.6s ease;*/
-      width: 70px;
-      height: 70px;
-    border-radius: 50%;
-     
-    }
-
-    .container:hover{
-      -webkit-transform: scale(1.3);
-      transform: scale(1.3);
-       
-    }
-
-    .cartype_labels
-    {
-      
-      /*font-size: 50px;*/
-      float: left;
-      margin-top: 10px;
-      
-    }
-
-    .payment_div
-    {
-      width: 1000px;
-      height: 300px;
-      margin-left: 20px;
-      padding-left: 120px;
-     /* background-color: red;*/
-      position: relative;
-      bottom: 30px; 
-
-
-    }
-    .payment
-    {
-      border-radius: 10px;
-      width: 160px;
-      margin: 30px;
-      padding: 15px;
-      float: left;
-      display: block;
-      border: 1px solid white;
-      text-align: center;
-
-    }
-
-    .payment:active
-    {
-      background-color: white;
-      border-right: 2px solid black;
-      border-bottom: 2px solid black;
-    }
-
-    .payment:hover
-    {
-      background-color: white;
-      -webkit-transition-duration: 0.3s; 
-    transition-duration: 0.3s;
-    }
-
-    #button3
-    {
-      margin-top: 50px;
-      position: relative;
-      border-radius: 8px;
-      bottom: 55px;
-      width: 870px; 
-      padding: 15px;
-      position: relative;
-      right: 20px;
+      top: 210px;
+      bottom: 100px;
+      margin: 20px;
+      margin-bottom: 70px;
+      font-size: 1.4em;
+      font-weight: bold;
+      width: 1100px;
+      height: 40px;
     }
 
 </style>
@@ -363,77 +253,24 @@ background-color: white;}
   
                 <span style="font-size:40px; cursor:pointer; z-index: 200; position: fixed;"  onclick="openNav()">&#9776;</span>
 
-                <div  class="w3-container  w3-animate-opacity " id="div1">
+                <div  style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div1">
                   
+                <h4 style="position: relative; left: 500px; margin-bottom: 30px; font-size: 1.7em; font-weight: bold; text-shadow: 2px 2px 4px #000000;" >Trip Details</h4>
 
-                  <h4 style="position: relative; left: 440px; text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; font-size: 1.7em; font-weight: bold;" >Available Cab options</h4> 
+                        <h2> <?php echo $source; ?> is the source</h2>
+                        <h2> <?php echo $destination; ?> is the destination</h2>
+                        <h2> <?php echo $distance; ?> is the distance</h2>
 
-
-
-      <form method="post" action="calculatetrip.php">
-
-                  <div class="container" style="margin-left: 300px;">
-                    <div class="item">
-                      <img  id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      </div>
-                  </div>
-
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Share Cab</label>
-
-                  <div class="container" style="position: relative; right: 30px;">
-                    <div class="item">
-                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      </div>
-                  </div>
-
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 110px;">Mini</label>
-
-                  <div class="container" style="position: relative; right: 30px;">
-                    <div class="item">
-                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      </div>
-                  </div>
-
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">Sedan</label>
-
-                  <div class="container" style="position: relative; right: 40px;">
-                    <div class="item">
-                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
-                      </div>
-                  </div>
-
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">SUV</label>
-
+                        <form method="post" action="directions.php">
+                          <button id="return" type="submit">Return to Trip Planner</button>
+                        </form>
+                </div>
                   
-              <!--       <button id="button1" onclick="slide_div2()">Continue</button>-->
-          </div>
-                  
-      <!-- <div style="position: absolute; top: 230px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
-
-        <button id="button2" onclick="slide_div3()">Continue</button>
-      </div> -->
-                  
-                    <div style="position: absolute; top: 335px;" class="w3-container  w3-animate-opacity " id="div3">    
-
-                      <h4 style="position: relative; left: 470px; text-shadow: 2px 2px 4px #000000; margin-bottom: 30px; font-size: 1.7em; font-weight: bold;" >Payment Options</h4>
-
-                      <div class="payment_div">
-                       <!-- <form> -->
-                        <input class="payment" type="button" name="payment" value="Net Banking" checked>
-                        <input class="payment" type="button" name="payment" value="Credit Card"> 
-                        <input class="payment" type="button" name="payment" value="Debit Card"> 
-                        <input class="payment" type="button" name="payment" value="PayTm"><br>
-                        
-                        <input class="payment" type="submit" name="submit" id="button3" value="Proceed">
-                      <!-- </form>  -->
-                      </div>
-                      
-                    <!-- <button id="button3" onclick="slide_div4()">Continue</button> -->
-                  </div>
+    
       
 
-      </form>
-                    <div style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div4">    
+      
+                    <!-- <div style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div4">    
 
                       <h4 style="position: relative; left: 500px; margin-bottom: 30px; font-size: 1.7em; font-weight: bold;" >Trip Details</h4>
 
@@ -446,7 +283,7 @@ background-color: white;}
                   </form>
                   </div>
 
-</div>
+</div> -->
 
 
 
@@ -549,29 +386,31 @@ $("#div1").animate({'right':($('body').innerWidth()-$('#div1').width())}, 'slow'
 // $("#div2").animate({'right':-$('#div2').width()}, 'slow');
 // }
 
-function slide_div3(){
-  document.getElementById("div3").style.display = "block";
-  $("#div3").animate({'left':100}, "slow");
-  document.getElementById("div1").style.backgroundColor = "rgba(0,0,0,0.6)";
-  document.getElementById("div1").style.color = "white";
-  document.getElementsByClassName("cartype_labels").style.color = "white";
-  //document.body.style.backgroundColor = "rgba(0,0,0,0.5)";
-$("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
-}
+// function slide_div3(){
+//   document.getElementById("div3").style.display = "block";
+//   $("#div3").animate({'left':100}, "slow");
+//   document.getElementById("div1").style.backgroundColor = "rgba(0,0,0,0.6)";
+//   document.getElementById("div1").style.color = "white";
+//   document.getElementById("div3").style.border = " 2px solid black";
+//   document.getElementById("div1").style.border = " 2px solid white";
+//   document.getElementsByClassName("cartype_labels").style.color = "white";
+//   //document.body.style.backgroundColor = "rgba(0,0,0,0.5)";
+// $("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
+// }
 
-function slide_div4(){
-  // document.getElementById("div4").style.display = "block";
-  // document.getElementById("div1").style.display = "none";
+// function slide_div4(){
+//   // document.getElementById("div4").style.display = "block";
+//   // document.getElementById("div1").style.display = "none";
 
-  // document.getElementsByClassName("payment").style.display = "none";
-  // document.getElementById("button3").style.display = "block";
+//   // document.getElementsByClassName("payment").style.display = "none";
+//   // document.getElementById("button3").style.display = "block";
 
-  // document.getElementById("div2").style.display = "none";
-  // document.getElementById("div3").style.display = "none";
-//   $("#div4").animate({'left':100}, "slow");
-//   document.body.style.backgroundColor = "white";
-// $("#div4").animate({'right':($('body').innerWidth()-$('#div4').width())}, 'slow');
-}
+//   // document.getElementById("div2").style.display = "none";
+//   // document.getElementById("div3").style.display = "none";
+// //   $("#div4").animate({'left':100}, "slow");
+// //   document.body.style.backgroundColor = "white";
+// // $("#div4").animate({'right':($('body').innerWidth()-$('#div4').width())}, 'slow');
+// }
 
 
 
