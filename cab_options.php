@@ -1,4 +1,3 @@
-
 <?php
 include('db.php');
 
@@ -30,7 +29,11 @@ session_start();
    
    $login_session = $row['First_Name'];
    
-   
+   if(isset($_POST['submit'])){
+        $car_model = $_POST["car_model"];
+        
+        $_SESSION['car_model'] = $car_model ;
+    }
 
 ?>
 
@@ -114,7 +117,7 @@ session_start();
     padding: 16px;
 }
 #div3{
-  display: none;
+  /*display: none;*/
   transition: margin-left .3s;
     padding: 16px;
 }
@@ -271,7 +274,17 @@ background-color: white;}
       left: 0;
     }
 
-    .item img {
+    .item  {
+      /*-webkit-transition: 0.6s ease;
+      transition: 0.6s ease;*/
+      width: 70px;
+      height: 70px;
+    border-radius: 50%;
+     
+    }
+
+    .car_icons
+     {
       /*-webkit-transition: 0.6s ease;
       transition: 0.6s ease;*/
       width: 70px;
@@ -370,35 +383,53 @@ background-color: white;}
 
 
 
-      <form method="post" action="calculatetrip.php">
+      <form method="post" action="#">
 
                   <div class="container" style="margin-left: 300px;">
                     <div class="item">
-                      <img  id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      <!-- <img  id="car_icons"  onclick="slide_div3()" src="images/images.png"> -->
+                      <input type="hidden" name="car_model" value="Cab Sharing">
+                      <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" ">
+                      <!-- <?php echo "$car_model"; ?> -->
                       </div>
                   </div>
 
+              
+
                   <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Share Cab</label>
 
+                    </form>
+
+<form method="post" action="#">
                   <div class="container" style="position: relative; right: 30px;">
                     <div class="item">
-                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      <input type="hidden" name="car_model" value="Mini">
+                      <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
+                      
                       </div>
                   </div>
 
                   <label class="cartype_labels" style="position: relative;  top: 80px; right: 110px;">Mini</label>
 
+</form>
+<form method="post" action="#">
+
                   <div class="container" style="position: relative; right: 30px;">
                     <div class="item">
-                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      <input type="hidden" name="car_model" value="Sedan">
+                      <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
+                      <?php echo "$car_model"; ?>
                       </div>
                   </div>
 
                   <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">Sedan</label>
-
+</form>
+<form method="post" action="#">
                   <div class="container" style="position: relative; right: 40px;">
                     <div class="item">
-                      <img id="car_icons"  onclick="slide_div3()" src="images/images.png">
+                      <input type="hidden" name="car_model" value="SUV">
+                      <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
+                      <?php echo "$car_model"; ?>
                       </div>
                   </div>
 
@@ -407,24 +438,44 @@ background-color: white;}
                   
               <!--       <button id="button1" onclick="slide_div2()">Continue</button>-->
           </div>
-                  
+              </form>    
       <!-- <div style="position: absolute; top: 230px;" class="w3-container  w3-animate-opacity " id="div2">    <p>Want to share or not</p>
 
         <button id="button2" onclick="slide_div3()">Continue</button>
       </div> -->
-                  
+                   
+
                     <div style="position: absolute; top: 335px;" class="w3-container  w3-animate-opacity " id="div3">    
 
                       <h4 style="position: relative; left: 470px; text-shadow: 2px 2px 4px #000000; margin-bottom: 30px; font-size: 1.7em; font-weight: bold;" >Payment Options</h4>
+                      
 
                       <div class="payment_div">
+
+
                        <!-- <form> -->
-                        <input class="payment" type="button" name="payment" value="Net Banking" checked>
+                        <!-- <input class="payment" type="button" name="payment" value="Net Banking" checked>
                         <input class="payment" type="button" name="payment" value="Credit Card"> 
                         <input class="payment" type="button" name="payment" value="Debit Card"> 
-                        <input class="payment" type="button" name="payment" value="PayTm"><br>
-                        
-                        <input class="payment" type="submit" name="submit" id="button3" value="Proceed">
+                        <input class="payment" type="button" name="payment" value="PayTm"><br>-->
+<form method="post" action="tripdetails.php">   
+                        <input type="hidden" name="payment" value="Net Banking">
+                      <input class="payment" type="submit" name="submit" value="Net Banking">
+                    </form>
+
+<form method="post" action="tripdetails.php">
+                      <input type="hidden" name="payment" value="Credit Card">
+                      <input class="payment " type="submit" name="submit" value="Credit Card">
+</form>
+<form method="post" action="tripdetails.php">
+                      <input type="hidden" name="payment" value="Debit Card">
+                      <input class="payment " type="submit" name="submit" value="Debit Card">
+</form>
+<form method="post" action="tripdetails.php">
+                      <input type="hidden" name="payment" value="PayTm">
+                      <input class="payment " type="submit" name="submit" value="PayTm">
+                        </form>
+                        <!-- <input class="payment" type="submit" name="submit" id="button3" value="Proceed"> -->
                       <!-- </form>  -->
                       </div>
                       
@@ -432,8 +483,8 @@ background-color: white;}
                   </div>
       
 
-      </form>
-                    <div style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div4">    
+                  </form>
+                   <!--  <div style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div4">    
 
                       <h4 style="position: relative; left: 500px; margin-bottom: 30px; font-size: 1.7em; font-weight: bold;" >Trip Details</h4>
 
@@ -444,7 +495,7 @@ background-color: white;}
                   <form method="post" action="directions.php">
                     <button id="return" type="submit">Return to Trip</button>
                   </form>
-                  </div>
+                  </div> -->
 
 </div>
 
@@ -541,6 +592,11 @@ $(document).ready(function() {
     $("#div1").animate({'left':100}, "slow");
     document.getElementById("div1").style.border = " 2px solid black";
 $("#div1").animate({'right':($('body').innerWidth()-$('#div1').width())}, 'slow');
+
+
+$("#div3").animate({'left':100}, "slow");
+    document.getElementById("div1").style.border = " 2px solid black";
+$("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
 });
 
 // function slide_div2(){
@@ -549,15 +605,17 @@ $("#div1").animate({'right':($('body').innerWidth()-$('#div1').width())}, 'slow'
 // $("#div2").animate({'right':-$('#div2').width()}, 'slow');
 // }
 
-function slide_div3(){
-  document.getElementById("div3").style.display = "block";
-  $("#div3").animate({'left':100}, "slow");
-  document.getElementById("div1").style.backgroundColor = "rgba(0,0,0,0.6)";
-  document.getElementById("div1").style.color = "white";
-  document.getElementsByClassName("cartype_labels").style.color = "white";
-  //document.body.style.backgroundColor = "rgba(0,0,0,0.5)";
-$("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
-}
+// function slide_div3(){
+//   document.getElementById("div3").style.display = "block";
+//   $("#div3").animate({'left':100}, "slow");
+//   document.getElementById("div1").style.backgroundColor = "rgba(0,0,0,0.6)";
+//   document.getElementById("div1").style.color = "white";
+//   document.getElementsByClassName("cartype_labels").style.color = "white";
+//   //document.body.style.backgroundColor = "rgba(0,0,0,0.5)";
+// $("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
+
+
+// }
 
 function slide_div4(){
   // document.getElementById("div4").style.display = "block";

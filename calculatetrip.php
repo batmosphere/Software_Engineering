@@ -20,6 +20,10 @@ session_start();
     
    $user_check = $_SESSION['username'];
 
+   $car_model = $_SESSION['car_model'];
+
+   $payment = $_SESSION['payment'] ;
+
     $_SESSION['source']  = $source;
 
     $_SESSION['destination'] = $destination ;
@@ -260,6 +264,8 @@ background-color: white;}
                         <h2> <?php echo $source; ?> is the source</h2>
                         <h2> <?php echo $destination; ?> is the destination</h2>
                         <h2> <?php echo $distance; ?> is the distance</h2>
+                        <h2> <?php echo $car_model; ?> is the car_model</h2>
+                        <h2> <?php echo $payment; ?> is the payment</h2>
 
                         <form method="post" action="directions.php">
                           <button id="return" type="submit">Return to Trip Planner</button>
