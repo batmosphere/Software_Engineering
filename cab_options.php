@@ -44,6 +44,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Taxi Hailing Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -365,7 +366,7 @@ background-color: white;}
 
 </style>
 </head>
-<body style="background-color: #ffbf00;" scroll="no";>
+<body style="background-color: #aaaaaa;" scroll="no";>
 
 <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -388,7 +389,7 @@ background-color: white;}
 
 
       <form method="post" action="#">
-          <input type="text" name="seats" style="position: relative; left: -400px; top: 60px; width: 150px;" >
+          <input type="text" name="seats" style="position: relative; left: -370px; top: 60px; width: 150px;" >
                   <div class="container" style="margin-left: 300px; position: relative; top: 30px;">
                     <div class="item">
                       <!-- <img  id="car_icons"  onclick="slide_div3()" src="images/images.png"> -->
@@ -406,7 +407,7 @@ background-color: white;}
                     </form>
 
 <form method="post" action="#">
-                  <div class="container" style="position: relative; right: 30px;">
+                  <div class="container" style="position: relative; right: -20px; ">
                     <div class="item">
                       <input type="hidden" name="car_model" value="Mini">
                       <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
@@ -414,12 +415,12 @@ background-color: white;}
                       </div>
                   </div>
 
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 110px;">Mini</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 60px;">Mini</label>
 
 </form>
 <form method="post" action="#">
 
-                  <div class="container" style="position: relative; right: 30px;">
+                  <div class="container" style="position: relative; right: -20px;">
                     <div class="item">
                       <input type="hidden" name="car_model" value="Sedan">
                       <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
@@ -427,10 +428,10 @@ background-color: white;}
                       </div>
                   </div>
 
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">Sedan</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 70px;">Sedan</label>
 </form>
 <form method="post" action="#">
-                  <div class="container" style="position: relative; right: 40px;">
+                  <div class="container" style="position: relative; right: -20px;">
                     <div class="item">
                       <input type="hidden" name="car_model" value="SUV">
                       <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
@@ -438,7 +439,7 @@ background-color: white;}
                       </div>
                   </div>
 
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 120px;">SUV</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 60px;">SUV</label>
 
                   
               <!--       <button id="button1" onclick="slide_div2()">Continue</button>-->

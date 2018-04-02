@@ -103,7 +103,7 @@
     	}
     	.floatright
     	{
-    		float: right;
+    		float: left;
     	}
 
     	.sub{
@@ -160,20 +160,25 @@
 				
 
 			  
-			<form method="post" action="employeelogin.php">
-			  <div class="floatright">
-			      <input class="sub" name="submit" type="submit" style="margin-top: -30px; margin-right: 50px; margin-left: 0px; width: 80px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" value="Log In" />		
-			  </div>
+			<form method="post" action="employeelogin.php" >
+			  
+
+              <div class="floatright">
+            <!-- <label style="font-size: 1em;">Username</label><br> -->
+                  <input type="text" placeholder="Enter Username" name="username" required autofocus>
+              </div>
 
 			  <div class="floatright">
 			      <!-- <label style="font-size: 1em;">Password</label><br> -->
 			      <input type="password" placeholder="Enter Password" name="password" required>
-			  </div>      
+			  </div>     
 
-			  <div class="floatright">
-			<!-- <label style="font-size: 1em;">Username</label><br> -->
-			      <input type="text" placeholder="Enter Username" name="username" required>
-			  </div>
+              <div class="floatright">
+                  <input class="sub" name="submit" type="submit" style="margin-top: -30px; margin-right: 50px; margin-left: 0px; width: 80px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" value="Log In" />      
+              </div>
+ 
+
+			  
 
 			  </form>
 			 </div>
@@ -196,12 +201,12 @@
 			<h2 style="font-size: 1.6em; position: relative; left: 120px;">Create a New Account</h2>
 			
 			<form method="post" action="createaccount.php">
-			<input style="position: relative;  width: 170px;" type="text" name="firstname" placeholder="Enter First Name" >
-			<input style="position: relative;  width: 170px;" type="text" name="lastname" placeholder="Enter Last Name" >
-            <input  type="text" name="number" placeholder="Enter Contact No." >
-            <input type="text" name="address" placeholder="Enter Address" >
-			<input  type="text" name="username" placeholder="Enter BITS ID" >
-			<input type="password" name="password" placeholder="Enter Password">
+			<input style="position: relative;  width: 170px;" type="text" name="firstname" placeholder="Enter First Name" required>
+			<input style="position: relative;  width: 170px;" type="text" name="lastname" placeholder="Enter Last Name" required>
+            <input  type="tele" name="number" placeholder="Enter Contact No."  required>
+            <input type="e-mail" name="address" placeholder="Enter BITS e-mail Address"  required>
+			<input  type="text" name="username" placeholder="Enter BITS ID"  required>
+			<input type="password" name="password" placeholder="Enter Password" required>
 			<input style="height: 40px; margin-top: -5px; width: 384px;" class="sub" name="submit" type="submit" value="Create Account" style="margin-left: 0px;" />
         </form>
 		</div>

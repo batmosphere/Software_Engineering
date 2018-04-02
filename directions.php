@@ -423,9 +423,9 @@ background-color: white;}
     <div style="display:none;" id="myDiv" class="animate-bottom">
 
     <form method="post" action="cab_options.php">
-    <input id="origin-input" class="controls" type="text" name="source" placeholder="Enter an origin location" required>
-    <input id="destination-input" class="controls" type="text" name="destination" placeholder="Enter a destination location" required>
-    <input  id="proceed" class="controls" value="Proceed" name="submit" type="submit">
+        <input required id="origin-input" class="controls" type="text" name="source" placeholder="Enter an origin location"  autofocus>
+        <input required id="destination-input" class="controls" type="text" name="destination" placeholder="Enter a destination location" >
+        <input  id="proceed" class="controls" value="Proceed" name="submit" type="submit">
     </form>
 
 

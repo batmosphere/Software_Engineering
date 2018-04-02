@@ -26,13 +26,16 @@ session_start();
 
    $seats = $_SESSION['seats'] ;
 
-   $registration_no = $_SESSION['registration_no'] ;
+   $registration_number = $_SESSION['registration_number'] ;
 
    $ID = $_SESSION['ID'] ;
 
-   $First_Name = $_SESSION['First_NameLast_Name'] ;
+   $First_Name = $_SESSION['First_Name'] ;
 
    $Last_Name = $_SESSION['Last_Name'] ;
+
+   $price = $_SESSION['price'] ;
+   
    
    $ses_sql = mysqli_query($db,"select First_Name from customer where username = '$user_check' ");
    
@@ -47,6 +50,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Taxi Hailing Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -273,10 +277,11 @@ background-color: white;}
                         <h2> <?php echo $car_model; ?> is the car_model</h2>
                         <h2> <?php echo $seats; ?> is the seats</h2>
                         <h2> <?php echo $payment; ?> is the payment</h2>
-                        <h2> <?php echo $registration_no; ?> is the registration_no</h2>
+                        <h2> <?php echo $registration_number; ?> is the registration_number</h2>
                         <h2> <?php echo $ID; ?> is the ID</h2>
                         <h2> <?php echo $First_Name; ?> is the First_Name of the driver</h2>
                         <h2> <?php echo $Last_Name; ?> is the Last_Name of the driver</h2>
+                        <h2> <?php echo $price; ?> is the price</h2>
                         
 
                         <form method="post" action="directions.php">
