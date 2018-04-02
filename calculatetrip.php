@@ -24,6 +24,8 @@ session_start();
 
    $payment = $_SESSION['payment'] ;
 
+   $seats = $_SESSION['seats'] ;
+
     $_SESSION['source']  = $source;
 
     $_SESSION['destination'] = $destination ;
@@ -265,6 +267,7 @@ background-color: white;}
                         <h2> <?php echo $destination; ?> is the destination</h2>
                         <h2> <?php echo $distance; ?> is the distance</h2>
                         <h2> <?php echo $car_model; ?> is the car_model</h2>
+                        <h2> <?php echo $seats; ?> is the seats</h2>
                         <h2> <?php echo $payment; ?> is the payment</h2>
 
                         <form method="post" action="directions.php">

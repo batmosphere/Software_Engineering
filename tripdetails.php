@@ -16,6 +16,8 @@ session_start();
 
     $car_model = $_SESSION['car_model'];
 
+    $seats = $_SESSION['seats'];
+
 
     // if(isset($_POST['submit'])){
     //     $payment = $_POST['payment'];
@@ -30,10 +32,22 @@ session_start();
 
       $_SESSION['payment']  = $_POST['payment'];
       
+      $payment = $_SESSION['payment'];
 
-      //mysqli_query($db,"insert into customer (customer, source, destination) VALUES ('$username','$source','$destination')");
+      if($payment != "Cab Sharing")
+      {
 
-               
+      $sql = "SELECT username FROM customer WHERE username = '$username' and password = '$password'";
+      $result = mysqli_query($db,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      
+      $count = mysqli_num_rows($result);
+
+      }
+      elseif ($payment == "Cab Sharing") 
+      {
+                
+      }         
          header("location: calculatetrip.php");
       
 

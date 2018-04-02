@@ -33,6 +33,10 @@ session_start();
         $car_model = $_POST["car_model"];
         
         $_SESSION['car_model'] = $car_model ;
+
+        $seats = $_POST["seats"];
+        
+        $_SESSION['seats'] = $seats ;
     }
 
 ?>
@@ -384,19 +388,20 @@ background-color: white;}
 
 
       <form method="post" action="#">
-
-                  <div class="container" style="margin-left: 300px;">
+          <input type="text" name="seats" style="position: relative; left: -400px; top: 60px; width: 150px;" >
+                  <div class="container" style="margin-left: 300px; position: relative; top: 30px;">
                     <div class="item">
                       <!-- <img  id="car_icons"  onclick="slide_div3()" src="images/images.png"> -->
                       <input type="hidden" name="car_model" value="Cab Sharing">
-                      <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" ">
+                      <input class="car_icons" type="submit" name="submit" style="color: white;  background-image: url(images/images.png); background-size: 65px 65px; " value=" ">
                       <!-- <?php echo "$car_model"; ?> -->
+                      
                       </div>
                   </div>
 
               
 
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Share Cab</label>
+                  <label class="cartype_labels" style="position: relative;  top: 110px; right: 100px;">Share Cab</label>
 
                     </form>
 
