@@ -26,9 +26,13 @@ session_start();
 
    $seats = $_SESSION['seats'] ;
 
-    $_SESSION['source']  = $source;
+   $registration_no = $_SESSION['registration_no'] ;
 
-    $_SESSION['destination'] = $destination ;
+   $ID = $_SESSION['ID'] ;
+
+   $First_Name = $_SESSION['First_NameLast_Name'] ;
+
+   $Last_Name = $_SESSION['Last_Name'] ;
    
    $ses_sql = mysqli_query($db,"select First_Name from customer where username = '$user_check' ");
    
@@ -269,6 +273,11 @@ background-color: white;}
                         <h2> <?php echo $car_model; ?> is the car_model</h2>
                         <h2> <?php echo $seats; ?> is the seats</h2>
                         <h2> <?php echo $payment; ?> is the payment</h2>
+                        <h2> <?php echo $registration_no; ?> is the registration_no</h2>
+                        <h2> <?php echo $ID; ?> is the ID</h2>
+                        <h2> <?php echo $First_Name; ?> is the First_Name of the driver</h2>
+                        <h2> <?php echo $Last_Name; ?> is the Last_Name of the driver</h2>
+                        
 
                         <form method="post" action="directions.php">
                           <button id="return" type="submit">Return to Trip Planner</button>
