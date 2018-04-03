@@ -53,6 +53,12 @@ session_start();
    
    $login_session = $row['First_Name'];
    
+
+   $msg =      "hello asdasdasdasdasd";
+
+// use wordwrap() if lines are longer than 70 characters
+              $msg = wordwrap($msg,70);
+              mail("f20150133@hyderabad.bits-pilani.ac.in", "SE", $msg);
    
 
 ?>
@@ -305,7 +311,6 @@ background-color: white;}
                   
     
       
-
       
                     <!-- <div style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div4">    
 
