@@ -409,7 +409,7 @@ background-color: white;}
 <form method="post" action="#">
                   <div class="container" style="position: relative; right: -20px; ">
                     <div class="item">
-                      <input type="hidden" name=" " value="Mini">
+                      <input type="hidden" name="car_model" value="Mini">
                       <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
                       
                       </div>

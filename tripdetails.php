@@ -196,19 +196,6 @@ session_start();
                         $result7 = mysqli_query($db,$sql7);
                     
                     
-                    // $sql6 = "UPDATE trip set est_time = '$distance' / (select speed from car_type where model=(select model from car where registration_number = '$registration_number'));";
-                    // $result6 = mysqli_query($db,$sql6);
-
-                    // $sql7 = "UPDATE trip set est_price = '$distance' * (select price from car_type where model=(select model from car where registration_number = '$registration_number'));";
-                    // $result7 = mysqli_query($db,$sql7);
-
-                    // $sql8 = "UPDATE trip set driver_first = (select First_Name from driver where ID='$ID');";
-                    // $result8 = mysqli_query($db,$sql8);
-
-                    // $sql9 = "UPDATE trip set driver_last = (select Last_Name from driver where ID='$ID');";
-                    // $result9 = mysqli_query($db,$sql9);
-
-
                 }
 
 
@@ -216,7 +203,7 @@ session_start();
 
 
       }
-      elseif($car_model !== "Cab_Sharing")
+      elseif($car_model !=  "Cab_Sharing")
       {
                 
                     $sql = "SELECT registration_number FROM car WHERE c_model='$car_model' and availability = 1 LIMIT 1";
