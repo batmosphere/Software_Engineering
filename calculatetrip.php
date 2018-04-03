@@ -35,6 +35,16 @@ session_start();
    $Last_Name = $_SESSION['Last_Name'] ;
 
    $price = $_SESSION['price'] ;
+
+   $time = $_SESSION['time'] ;
+
+   $zero = $_SESSION['zero'] ;
+
+   $Payment_id = $_SESSION['Payment_id'] ;
+
+   $max_seats = $_SESSION['max_seats'] ;
+
+   $count = $_SESSION['count'] ;
    
    
    $ses_sql = mysqli_query($db,"select First_Name from customer where username = '$user_check' ");
@@ -53,8 +63,8 @@ session_start();
   <title>Taxi Hailing Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 
 <style>
@@ -282,6 +292,10 @@ background-color: white;}
                         <h2> <?php echo $First_Name; ?> is the First_Name of the driver</h2>
                         <h2> <?php echo $Last_Name; ?> is the Last_Name of the driver</h2>
                         <h2> <?php echo $price; ?> is the price</h2>
+                        <h2> <?php echo $time; ?> is the time</h2>
+                        <h2> <?php echo $Payment_id; ?> is the Payment_id</h2>
+                        <h2> <?php echo $max_seats; ?> is the max_seats</h2>
+                        <h2> <?php echo $count; ?> is the count</h2>
                         
 
                         <form method="post" action="directions.php">

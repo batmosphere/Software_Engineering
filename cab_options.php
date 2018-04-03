@@ -47,8 +47,8 @@ session_start();
   <title>Taxi Hailing Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 
 <style>
@@ -409,7 +409,7 @@ background-color: white;}
 <form method="post" action="#">
                   <div class="container" style="position: relative; right: -20px; ">
                     <div class="item">
-                      <input type="hidden" name="car_model" value="Mini">
+                      <input type="hidden" name=" " value="Mini">
                       <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
                       
                       </div>
