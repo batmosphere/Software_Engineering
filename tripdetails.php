@@ -42,7 +42,7 @@ session_start();
       {
 
 
-               $sql = "SELECT Payment_id from payment where available_seats >=0;";
+               $sql = "SELECT Payment_id from payment where available_seats >= '$seats';";
                   $result = mysqli_query($db,$sql);
                   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                   $Payment_id = $row['Payment_id'];
@@ -52,7 +52,7 @@ session_start();
                   $_SESSION['count'] = $count;
 
 
-                if($count != 0)
+                if($count == 0)
                 {       
 
                         $sql2 = "SELECT ID FROM driver WHERE availability = 1 LIMIT 1;";
@@ -126,27 +126,33 @@ session_start();
                 }
                 elseif($count > 0)
                 {
-                        $sql = "SELECT registration_number, driver_id, driver_first, driver_last, available_seats from payment where Payment_id = '$Payment_id' limit 1;";
+                        $sql = "SELECT Payment_id, registration_number, driver_id, driver_first, driver_last, available_seats from payment where Payment_id = '$Payment_id' limit 1;";
                         $result = mysqli_query($db,$sql);
                         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                        $Payment_id = $row['Payment_id'];
                         $registration_number = $row['registration_number'];
-                        $_SESSION['registration_number'] = $registration_number;
 
+                        $_SESSION['registration_number'] = $registration_number;
+                        $_SESSION['Payment_id'] = $Payment_id;
                         $driver_id = $row['driver_id'];
                         $_SESSION['ID'] = $driver_id;
+
+
+                        $sql4 = "UPDATE payment set available_seats = 0 WHERE Payment_id = '$Payment_id';";
+                        $result4 = mysqli_query($db,$sql4);
 
                         $driver_first = $row['driver_first'];
                         $driver_last = $row['driver_last'];
                         $available_seats = $row['available_seats'];
                         $avail = $available_seats - $seats;
 
-                        $sql22 = "SELECT First_Name from driver where ID='$ID';";
+                        $sql22 = "SELECT First_Name from driver where ID='$driver_id';";
                         $result22 = mysqli_query($db,$sql22);
                         $row22 = mysqli_fetch_array($result22,MYSQLI_ASSOC);
                         $First_Name = $row22['First_Name'];
                         $_SESSION['First_Name'] = $First_Name;
 
-                        $sql34 = "select Last_Name from driver where ID='$ID'";
+                        $sql34 = "select Last_Name from driver where ID='$driver_id'";
                         $result34 = mysqli_query($db,$sql34);
                         $row34 = mysqli_fetch_array($result34,MYSQLI_ASSOC);
                         $Last_Name = $row34['Last_Name'];
@@ -186,7 +192,7 @@ session_start();
 
                         
                         
-                     $sql7 = "INSERT into payment (mode_of_payment, amount, username, driver_id, driver_first, driver_last,source,destination, distance, est_time,  available_seats, registration_number) VALUES ('$payment', '$totalprice','$user_check', '$ID', '$First_Name', '$Last_Name','$source','$destination', '$distance', '$time', '$avail', '$registration_number') ;";
+                     $sql7 = "INSERT into payment (mode_of_payment, amount, username, driver_id, driver_first, driver_last,source,destination, distance, est_time,  available_seats, registration_number) VALUES ('$payment', '$totalprice','$user_check', '$driver_id', '$First_Name', '$Last_Name','$source','$destination', '$distance', '$time', '$avail', '$registration_number') ;";
                         $result7 = mysqli_query($db,$sql7);
                     
                     
