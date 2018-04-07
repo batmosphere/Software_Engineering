@@ -124,7 +124,7 @@ session_start();
                         // echo "$result7";
 
                 }
-                elseif($count > 0)
+                elseif($count != 0)
                 {
                         $sql = "SELECT Payment_id, registration_number, driver_id, driver_first, driver_last, available_seats from payment where Payment_id = '$Payment_id' limit 1;";
                         $result = mysqli_query($db,$sql);
@@ -206,7 +206,7 @@ session_start();
       elseif($car_model !=  "Cab_Sharing")
       {
                 
-                    $sql = "SELECT registration_number FROM car WHERE c_model='$car_model' and availability = 1 LIMIT 1";
+                    $sql = "SELECT registration_number FROM car WHERE c_model='$car_model' and availability = 1 LIMIT 1;";
                     $result = mysqli_query($db,$sql);
                     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                     $registration_number = $row['registration_number'];
@@ -217,26 +217,26 @@ session_start();
                       echo "NO cars available";
                     }
                     
-                    $sql2 = "SELECT ID FROM driver WHERE availability = 1 LIMIT 1";
+                    $sql2 = "SELECT ID FROM driver WHERE availability = 1 LIMIT 1;";
                     $result2 = mysqli_query($db,$sql2);
                     $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
                     $ID = $row2['ID'];
                     $_SESSION['ID'] = $ID;
 
-                    $sql34 = "SELECT First_Name from driver where ID='$ID'";
+                    $sql34 = "SELECT First_Name from driver where ID='$ID';";
                     $result34 = mysqli_query($db,$sql34);
                     $row34 = mysqli_fetch_array($result34,MYSQLI_ASSOC);
                     $First_Name = $row34['First_Name'];
                     $_SESSION['First_Name'] = $First_Name;
 
-                    $sql34 = "SELECT Last_Name from driver where ID='$ID'";
+                    $sql34 = "SELECT Last_Name from driver where ID='$ID';";
                     $result34 = mysqli_query($db,$sql34);
                     $row34 = mysqli_fetch_array($result34,MYSQLI_ASSOC);
                     $Last_Name = $row34['Last_Name'];
                     $_SESSION['Last_Name'] = $Last_Name;
 
 
-                    $sql3 = "UPDATE car set availability = 0 WHERE registration_number = '$registration_number'";
+                    $sql3 = "UPDATE car set availability = 0 WHERE registration_number = '$registration_number';";
                     $result3 = mysqli_query($db,$sql3);
 
 

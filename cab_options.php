@@ -102,7 +102,7 @@ session_start();
     top: 30px;
     right: 0px;
     width: 85%;
-    height: 270px;
+    height: 240px;
     background-color: rgba(0,0,0,0.6);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
@@ -369,7 +369,7 @@ background-color: white;}
 <body style="background-color: #aaaaaa;" scroll="no";>
 
 <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="text-decoration: none;">&times;</a>
       <h2 style="color: white; float: left; font-size: 1.7em; margin-left: 30px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> <br>
       <br><a  id="myBtn1" onclick="document.getElementById('about').style.display='block'">About</a>
       <a  id="myBtn2" onclick="document.getElementById('team').style.display='block'">Team</a>
@@ -384,12 +384,12 @@ background-color: white;}
                 <div  class="w3-container  w3-animate-opacity " id="div1">
                   
 
-                  <h4 style="position: relative; left: 440px; text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; font-size: 1.7em; font-weight: bold;" >Available Cab options</h4> 
+                  <h4 style="position: relative; left: 440px; text-shadow: 2px 2px 4px #000000; margin-bottom: 20px; font-size: 1.7em; font-weight: bold;" >Available Cab options</h4> 
 
 
 
       <form method="post" action="#">
-          <input type="text" name="seats" style="position: relative; left: -370px; top: 60px; width: 150px;" >
+          <input type="text" name="seats" style="position: relative; left: -420px; top: 60px; width: 160px;" placeholder="Enter Number of seats" >
                   <div class="container" style="margin-left: 300px; position: relative; top: 30px;">
                     <div class="item">
                       <!-- <img  id="car_icons"  onclick="slide_div3()" src="images/images.png"> -->
@@ -407,7 +407,7 @@ background-color: white;}
                     </form>
 
 <form method="post" action="#">
-                  <div class="container" style="position: relative; right: -20px; ">
+                  <div class="container" style="position: relative; right: 20px; ">
                     <div class="item">
                       <input type="hidden" name="car_model" value="Mini">
                       <input class="car_icons" type="submit" name="submit" style="color: white; background-image: url(images/images.png); background-size: 65px 65px; " value=" " >
@@ -415,7 +415,7 @@ background-color: white;}
                       </div>
                   </div>
 
-                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 60px;">Mini</label>
+                  <label class="cartype_labels" style="position: relative;  top: 80px; right: 100px;">Mini</label>
 
 </form>
 <form method="post" action="#">
@@ -453,7 +453,7 @@ background-color: white;}
 
                     <div style="position: absolute; top: 335px;" class="w3-container  w3-animate-opacity " id="div3">    
 
-                      <h4 style="position: relative; left: 470px; text-shadow: 2px 2px 4px #000000; margin-bottom: 30px; font-size: 1.7em; font-weight: bold;" >Payment Options</h4>
+                      <h4 style="position: relative; left: 470px; text-shadow: 2px 2px 4px #000000; margin-bottom: 60px; font-size: 1.7em; font-weight: bold;" >Payment Options</h4>
                       
 
                       <div class="payment_div">
@@ -595,14 +595,18 @@ background-color: white;}
 <script>
 
 $(document).ready(function() {
-    $("#div1").animate({'left':100}, "slow");
-    document.getElementById("div1").style.border = " 2px solid black";
-$("#div1").animate({'right':($('body').innerWidth()-$('#div1').width())}, 'slow');
+ 
+          $("#div1").animate({'left':100}, "slow");
+          document.getElementById("div1").style.border = " 2px solid black";
+      $("#div1").animate({'right':($('body').innerWidth()-$('#div1').width())}, 'slow');
 
 
-$("#div3").animate({'left':100}, "slow");
-    document.getElementById("div1").style.border = " 2px solid black";
-$("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
+      $("#div3").animate({'left':100}, "slow");
+          document.getElementById("div1").style.border = " 2px solid black";
+      $("#div3").animate({'right':($('body').innerWidth()-$('#div3').width())}, 'slow');
+  
+
+
 });
 
 // function slide_div2(){

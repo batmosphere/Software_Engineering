@@ -54,11 +54,11 @@ session_start();
    $login_session = $row['First_Name'];
    
 
-   $msg =      "hello asdasdasdasdasd";
+//    $msg =      "hello asdasdasdasdasd";
 
-// use wordwrap() if lines are longer than 70 characters
-              $msg = wordwrap($msg,70);
-              mail("f20150133@hyderabad.bits-pilani.ac.in", "SE", $msg);
+// // use wordwrap() if lines are longer than 70 characters
+//               $msg = wordwrap($msg,70);
+//               mail("f20150133@hyderabad.bits-pilani.ac.in", "SE", $msg);
    
 
 ?>

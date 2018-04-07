@@ -760,7 +760,7 @@ var getDistance = function(p1, p2, p3, p4) {
                         var distance = parseInt(getDistance(origin1_latitude, origin1_longitude, origin2_latitude, origin2_longitude));
                         // console.log("the distance in int is " + distance);
                         distance = (8806500 - distance ) * 2.484 / 1000;    //FINAL DISTANCE
-                        distance = distance.toFixed(1) + " km";
+                        distance = distance.toFixed(1);
                         document.cookie = "distance="+distance;  
                        // document.getElementById('output').innerHTML = distance;
                         // console.log("the distance is " + distance);
