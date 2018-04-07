@@ -15,7 +15,7 @@
 <html>
 
 <head>
-    <title>Taxi Hailing Application</title>
+    <title>BITS Taxi Hailing Application</title>
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"> 
 
     <style type="text/css">
@@ -177,11 +177,11 @@
                   <input class="sub" name="submit" type="submit" style="margin-top: -30px; margin-right: 50px; margin-left: 0px; width: 80px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" value="Log In" />      
               </div>
  
-
-			  
-
-			  </form>
+              </form>
 			 </div>
+
+
+             <!-- <a type="text" style="color: black; width: 250px; position: relative; top: 40px; left: 350px;" name="submit" onclick="forgotpassword()">Forgot password</a> -->
 
 
 	</div>
@@ -190,7 +190,8 @@
 
 	<div id="bottom">
 		<div id="info">
-			<p style="margin: 30px; font-size: 1.05em;">Welcome to taxi Hailing ApplicationWelcome to taxi Hailing ApplicationWelcome to taxi Hailing ApplicationWelcome to taxi Hailing ApplicationWelcome to taxi  </p>
+			<p style="margin: 30px; font-size: 1.05em;">Welcome to BITS Taxi Hailing Application developed as a part of the course Software Engineering (IS F341). 
+                <br> Enter Username / Password to login or create an account</p>
 			
 			<img id="taxi_image" src="images/taxi.png">
 		</div>

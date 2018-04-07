@@ -66,7 +66,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Taxi Hailing Application</title>
+  <title>BITS Taxi Hailing Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -256,7 +256,8 @@ background-color: white;}
     #return
     {
       position: relative;
-      top: 210px;
+      top: 15px;
+      left: 10px;
       bottom: 100px;
       margin: 20px;
       margin-bottom: 70px;
@@ -264,14 +265,38 @@ background-color: white;}
       font-weight: bold;
       width: 1100px;
       height: 40px;
+      background-color: #2EC563;
+      border-radius: 8px;
+      border: 2px solid #2EC563;
+      text-decoration: none;
+
+    }
+
+    .floatleft
+    {
+      float: left;
+      background-color: #cfcfcf;
+      border-radius: 8px;
+      width: 43%;
+      margin: 5px;
+      margin-right: 10px;
+      margin-left: 40px;
+      color: black;
+      padding: -10px;
+      padding-left: 20px;
+    }
+
+    input:active
+    {
+      outline: none;
     }
 
 </style>
 </head>
-<body style="background-color: #ffbf00;" scroll="no";>
+<body scroll="no"; style="background-color: #fff175; margin: 0px; overflow: hidden;">
 
 <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="text-decoration: none;">&times;</a>
       <h2 style="color: white; float: left; font-size: 1.7em; margin-left: 30px; margin-top: 0px; margin-bottom: 20px; ">   <?php echo $login_session; ?>'s Dashboard</h2> <br>
       <br><a  id="myBtn1" onclick="document.getElementById('about').style.display='block'">About</a>
       <a  id="myBtn2" onclick="document.getElementById('team').style.display='block'">Team</a>
@@ -285,9 +310,51 @@ background-color: white;}
 
                 <div  style="position: absolute; top: 40px;" class="w3-container  w3-animate-opacity " id="div1">
                   
-                <h4 style="position: relative; left: 500px; margin-bottom: 30px; font-size: 1.7em; font-weight: bold; text-shadow: 2px 2px 4px #000000;" >Trip Details</h4>
+                <h4 style="position: relative; left: 500px; margin-bottom: 10px; margin-top: 20px; font-size: 1.4em; font-weight: bold; text-shadow: 2px 2px 4px #000000;" >Trip Details</h4>
 
-                        <h2> <?php echo $source; ?> is the source</h2>
+
+                <div>
+                    <div class="floatleft">
+                      <h4> Source : <?php echo $source; ?></h4>
+                    </div>
+                      
+                    <div class="floatleft">
+                      <h4> Destination : <?php echo $destination; ?> </h4>
+                    </div>      
+
+                    <div class="floatleft">
+                       <h4>Distance : <?php echo $distance; ?> km</h4>
+                    </div>
+
+                    <div class="floatleft">
+                       <h4>ETA : <?php echo number_format((float)$time, 2, '.', '');; ?> minutes</h4>
+                    </div>          
+                    
+                    <h4 style="position: relative; left: 500px; top: 10px; margin-bottom: 20px; margin-top: 20px; font-size: 1.4em; font-weight: bold; text-shadow: 2px 2px 4px #000000;" >Ride Details</h4>
+
+                    <div class="floatleft">
+                       <h4>Car Type : <?php echo $car_model; ?></h4>
+                    </div>
+
+                    <div class="floatleft">
+                       <h4>Registration Number : <?php echo $registration_number; ?></h4>
+                    </div>
+
+                    <h4 style="position: relative; left: 420px; top: 10px; margin-bottom: 20px; margin-top: 20px; font-size: 1.4em; font-weight: bold; text-shadow: 2px 2px 4px #000000;" >Driver and Payment Details</h4>
+                    
+                    
+                    <div class="floatleft">
+                       <h4> Driver name : <?php echo $First_Name ?> <?php echo $Last_Name; ?> </h4>
+                    </div>
+
+                    
+                    <div class="floatleft">
+                       <h4>Rs <?php echo $price ?> by <?php echo $payment ?></h4>
+                    </div>
+
+                </div>
+
+                        <!-- <h2> <?php echo $source; ?> is the source</h2>
                         <h2> <?php echo $destination; ?> is the destination</h2>
                         <h2> <?php echo $distance; ?> is the distance</h2>
                         <h2> <?php echo $car_model; ?> is the car_model</h2>
@@ -302,7 +369,7 @@ background-color: white;}
                         <h2> <?php echo $Payment_id; ?> is the Payment_id</h2>
                         <h2> <?php echo $max_seats; ?> is the max_seats</h2>
                         <h2> <?php echo $count; ?> is the count</h2>
-                        
+                         -->
 
                         <form method="post" action="directions.php">
                           <button id="return" type="submit">Return to Trip Planner</button>

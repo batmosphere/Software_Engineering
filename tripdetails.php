@@ -272,6 +272,16 @@ session_start();
                     $sql7 = "INSERT into payment (mode_of_payment, amount, username, driver_id, driver_first, driver_last,source,destination, distance, est_time,  available_seats, registration_number) VALUES ('$payment', '$totalprice','$user_check', '$ID', '$First_Name', '$Last_Name','$source','$destination', '$distance', '$time', '$zero', '$registration_number') ;";
                     $result7 = mysqli_query($db,$sql7);
 
+
+                     $sql6 = "CREATE EVENT myevent ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECONDS DO UPDATE car SET availability = 1 WHERE model= '$car_model';";
+                    $result6 = mysqli_query($db,$sql6);
+
+                    $sql6 = "CREATE EVENT myevent2 ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECONDS DO UPDATE driver SET availability = 1 WHERE WHERE ID = '$ID';";
+                    $result6 = mysqli_query($db,$sql6);
+
+
+                    
+
                     
       }         
          

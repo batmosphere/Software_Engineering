@@ -11,7 +11,7 @@ session_start();
       
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      $password = $mypassword;
+      $password = md5($myusername.$mypassword);
       
       
       $sql = "SELECT username FROM customer WHERE username = '$myusername' and password = '$password'";

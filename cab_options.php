@@ -44,7 +44,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Taxi Hailing Application</title>
+  <title>BITS Taxi Hailing Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -364,9 +364,12 @@ background-color: white;}
       right: 20px;
     }
 
+    input::-moz-focus-inner { 
+       border: 0; 
+      }
 </style>
 </head>
-<body style="background-color: #aaaaaa;" scroll="no";>
+<body scroll="no"; style="background-color: #fff175; margin: 0px; overflow: hidden;">
 
 <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="text-decoration: none;">&times;</a>
@@ -404,7 +407,7 @@ background-color: white;}
 
                   <label class="cartype_labels" style="position: relative;  top: 110px; right: 100px;">Share Cab</label>
 
-                    </form>
+      </form>   
 
 <form method="post" action="#">
                   <div class="container" style="position: relative; right: 20px; ">

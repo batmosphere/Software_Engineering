@@ -11,16 +11,16 @@ session_start();
       
   	    $username = $_POST['username'];
     		$mypassword = $_POST['password'];
-        $password = md5($username.$mypassword);
+        $password = md5($mypassword);
         $number = $_POST['number'];
         $address = $_POST['address'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
 
       
-      mysqli_query($db,"insert into customer ( contact_no, address, password, First_Name, Last_Name, username) VALUES ('$number', '$address', '$password', '$firstname', '$lastname', '$username');");
+     
 
-       $sql = "SELECT username FROM customer WHERE username = '$username' and password = '$password'";
+       $sql = "SELECT model from car WHERE availibility = 1";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       

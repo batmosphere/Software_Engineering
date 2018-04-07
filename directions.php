@@ -24,7 +24,7 @@ session_start();
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Taxi Hailing Application</title>
+    <title>BITS Taxi Hailing Application</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -418,7 +418,7 @@ background-color: white;}
       <a  id="myBtn4" onclick="document.getElementById('help').style.display='block'">Help</a>
     </div>
 
-    <span style="font-size:50px; cursor:pointer; z-index: 200; position: relative; margin-left: 15px; top: 12px;"  onclick="openNav()">&#9776;</span>
+    <span style="font-size:40px; cursor:pointer; z-index: 200; position: relative; margin-left: 15px; top: 12px;"  onclick="openNav()">&#9776;</span>
 
     <div style="display:none;" id="myDiv" class="animate-bottom">
 
