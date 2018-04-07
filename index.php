@@ -165,7 +165,7 @@
 
               <div class="floatright">
             <!-- <label style="font-size: 1em;">Username</label><br> -->
-                  <input type="text" placeholder="Enter Username" name="username" required autofocus>
+                  <input type="text" placeholder="Enter BITS ID" name="username" required autofocus>
               </div>
 
 			  <div class="floatright">
