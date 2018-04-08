@@ -121,6 +121,14 @@ session_start();
                         $sql7 = "INSERT into payment (mode_of_payment, amount, username, driver_id, driver_first, driver_last,source,destination, distance, est_time,  available_seats, registration_number) VALUES ('$payment', '$totalprice','$user_check', '$ID', '$First_Name', '$Last_Name','$source','$destination', '$distance', '$time', '$avail', '$registration_number') ;";
                         $result7 = mysqli_query($db,$sql7);
 
+
+
+                         $sql34 = "SELECT Payment_id from payment where driver_id='$ID' and source = '$source' and destination = '$destination' and amount = '$totalprice' LIMIT 1;" ;
+                        $result34 = mysqli_query($db,$sql34);
+                        $row34 = mysqli_fetch_array($result34,MYSQLI_ASSOC);
+                        $Payment_id = $row34['Payment_id'];
+                        $_SESSION['Payment_id'] = $Payment_id;
+
                         // echo "$result7";
 
                 }
@@ -273,11 +281,18 @@ session_start();
                     $result7 = mysqli_query($db,$sql7);
 
 
-                     $sql6 = "CREATE EVENT myevent ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECONDS DO UPDATE car SET availability = 1 WHERE model= '$car_model';";
-                    $result6 = mysqli_query($db,$sql6);
+                    $sql34 = "SELECT Payment_id from payment where driver_id='$ID' and source = '$source' and destination = '$destination' and amount = '$totalprice' LIMIT 1;" ;
+                    $result34 = mysqli_query($db,$sql34);
+                    $row34 = mysqli_fetch_array($result34,MYSQLI_ASSOC);
+                    $Payment_id = $row34['Payment_id'];
+                    $_SESSION['Payment_id'] = $Payment_id;
 
-                    $sql6 = "CREATE EVENT myevent2 ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECONDS DO UPDATE driver SET availability = 1 WHERE WHERE ID = '$ID';";
-                    $result6 = mysqli_query($db,$sql6);
+
+                    //  $sql6 = "CREATE EVENT myevent ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECONDS DO UPDATE car SET availability = 1 WHERE model= '$car_model';";
+                    // $result6 = mysqli_query($db,$sql6);
+
+                    // $sql6 = "CREATE EVENT myevent2 ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECONDS DO UPDATE driver SET availability = 1 WHERE WHERE ID = '$ID';";
+                    // $result6 = mysqli_query($db,$sql6);
 
 
                     

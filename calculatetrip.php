@@ -323,7 +323,7 @@ background-color: white;}
                     </div>      
 
                     <div class="floatleft">
-                       <h4>Distance : <?php echo $distance; ?> km</h4>
+                       <h4>Payment Id : <?php echo $Payment_id; ?> km</h4>
                     </div>
 
                     <div class="floatleft">
@@ -371,8 +371,8 @@ background-color: white;}
                         <h2> <?php echo $count; ?> is the count</h2>
                          -->
 
-                        <form method="post" action="directions.php">
-                          <button id="return" type="submit">Return to Trip Planner</button>
+                        <form method="post" action="end_trip.php">
+                          <button id="return" type="submit">Finish Trip</button>
                         </form>
                 </div>
                   

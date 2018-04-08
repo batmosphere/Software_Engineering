@@ -418,7 +418,7 @@ background-color: white;}
       <a  id="myBtn4" onclick="document.getElementById('help').style.display='block'">Help</a>
     </div>
 
-    <span style="font-size:40px; cursor:pointer; z-index: 200; position: relative; margin-left: 15px; top: 12px;"  onclick="openNav()">&#9776;</span>
+    <span  style="font-size:40px; cursor:pointer; z-index: 200; position: relative; margin-left: 15px; top: 12px;"  onclick="openNav()">&#9776;</span>
 
     <div style="display:none;" id="myDiv" class="animate-bottom">
 
@@ -536,6 +536,7 @@ background-color: white;}
 
 <!-- </div> -->
 <script>
+
 
 
   var myVar;
