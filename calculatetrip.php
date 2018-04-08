@@ -323,7 +323,7 @@ background-color: white;}
                     </div>      
 
                     <div class="floatleft">
-                       <h4>Payment Id : <?php echo $Payment_id; ?> km</h4>
+                       <h4>Distance is : <?php echo $distance; ?> km</h4>
                     </div>
 
                     <div class="floatleft">

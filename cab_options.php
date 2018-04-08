@@ -16,6 +16,19 @@ session_start();
 
  
     $distance = $_COOKIE['distance']; // Outputs : Hi John Doe
+
+      $time = date("H:i:s");
+      if ($time >= "20" )
+        { 
+          
+          if( $time < "6") {
+          
+          $distance = $distance*1.5;
+          
+        }
+      }
+
+      $_COOKIE['distance'] = $distance;
     
    $user_check = $_SESSION['username'];
 
