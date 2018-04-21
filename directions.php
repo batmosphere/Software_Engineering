@@ -457,8 +457,9 @@ background-color: white;}
       <h2>About</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+      <h4>The purpose of the BITS Taxi Hailing Application is to make travel to and fro from BITS very easy for
+both, students and faculty.<br> <br> The application provides cabs for travel to fixed locations in the city. Anyone
+can access this application online and features like cab sharing are also available.</h4>
     </div>
    <!--  <div class="modal-footer">
       <h3>Modal Footer</h3>
@@ -478,8 +479,10 @@ background-color: white;}
                       <h2>Team Members</h2>
                     </div>
                     <div class="modal-body">
-                      <p>Some text in the Modal Body</p>
-                      <p>Some other text...</p>
+                      <h4>Team:</h4> <p>This application has been developed by Mukund Kothari, Ashwin Nallan and Piyush Kalantri for
+the software engineering assignment.<br></p>
+<h4>User Interface Development/Design:</h4> <p>Mukund Kothari- 2015A7PS0133H<br></p>
+<h4>Database Design:</h4> <p>Ashwin Nallan- 2016A7PS0013H , Piyush Kalantri- 2016B4A70529H</h4>     </p>   
                     </div>
                    <!--  <div class="modal-footer">
                       <h3>Modal Footer</h3>
@@ -514,17 +517,28 @@ background-color: white;}
 
 
       <!-- The Modal -->
-          <div id="help" class="modal">
+         <div id="help" class="modal">
 
             <!-- Modal content -->
-            <div class="modal-content">
-              <div class="modal-header">
+            <div class="modal-content" style="height: 420px;">
+              <div class="modal-header"  style="position: relative; top: -80px;">
                 <span class="close">&times;</span>
                 <h2>Help</h2>
               </div>
-              <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+              <div class="modal-body"  style="position: relative; top: -80px;">
+                <h4>Creating Account:</h4> <p>In the login page, provide the required details and create a password for your
+account. Login using these details every time.
+</p>
+<h4>Selecting Source and Destination:</h4> <p>Type in the required places and select most appropriate
+choices from the prompts. </p>
+<h4>Selecting Cab and other options:</h4> <p>Select the type of car that you want to travel in. There are
+three types available. If you want to share the cab, select the cab sharing option. The payment
+details along with driver details and estimated time will be provided to you.
+</p>
+<h4>Customer Care:</h4> <p>For any other help or complaints, you can contact us at</p>
+<p>1. f20150133@hyderabad.bits-pilani.ac.in<br>
+2. f20150094@hyderabad.bits-pilani.ac.in<br>
+3. f20160013@hyderabad.bits-pilani.ac.in</p>
               </div>
              <!--  <div class="modal-footer">
                 <h3>Modal Footer</h3>
@@ -762,6 +776,8 @@ var getDistance = function(p1, p2, p3, p4) {
                         // console.log("the distance in int is " + distance);
                         distance = (8806500 - distance ) * 2.484 / 1000;    //FINAL DISTANCE
                         distance = distance.toFixed(1);
+
+                        
                         document.cookie = "distance="+distance;  
                        // document.getElementById('output').innerHTML = distance;
                         // console.log("the distance is " + distance);
